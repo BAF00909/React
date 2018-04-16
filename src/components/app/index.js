@@ -7,6 +7,7 @@ import MembersList from '../members';
 import HiddenMessages from '../hiddenMessages';
 import CountriesList from '../countryList';
 import TimeLine from '../timeLine';
+import PeopleList from '../peopleList';
 
 const data = [
     {
@@ -108,6 +109,9 @@ class App extends Component {
                 <AddColorForm onNewColor = {this.addColor}/>
                 <div>
                     <ColorList colors = {colors} onRemove={this.onRemove} onRate={this.onRate}/>
+                </div>
+                <div>
+                    <PeopleList/>  
                 </div>
                 <div>
                     <TimeLine data={data}/>
