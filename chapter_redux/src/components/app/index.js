@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {v4} from 'uuid';
 import AddColorForm from '../addColorForm';
 import ColorList from '../colorList';
+import reduser from '../../reducers';
 //import CountDown from '../countDown';
 //import MembersList from '../members';
 //import HiddenMessages from '../hiddenMessages';
