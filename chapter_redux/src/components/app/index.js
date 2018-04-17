@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {v4} from 'uuid';
 import AddColorForm from '../addColorForm';
 import ColorList from '../colorList';
-import CountDown from '../countDown';
+//import CountDown from '../countDown';
 //import MembersList from '../members';
 //import HiddenMessages from '../hiddenMessages';
 //import CountriesList from '../countryList';
@@ -110,9 +110,6 @@ class App extends Component {
                 <AddColorForm onNewColor = {this.addColor}/>
                 <div>
                     <ColorList colors = {colors} onRemove={this.onRemove} onRate={this.onRate}/>
-                </div>
-                <div>
-                    <CountDown />
                 </div>
             </div>
         )
