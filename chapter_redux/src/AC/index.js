@@ -1,4 +1,4 @@
-import { ADD_COLOR, RATE_COLOR, REMOVE_COLOR } from "./constants";
+import { ADD_COLOR, RATE_COLOR, REMOVE_COLOR, SORT_COLORS } from "./constants";
 
 export const actionAdd = {
     payload: {
@@ -23,4 +23,11 @@ export const actionRemove = {
         type: REMOVE_COLOR,
         id: "4243e1p0-9abl-4e90-95p4-8001l8yf3036",
     }
-}
+};
+
+export const actionSort = {
+    payload: {
+        type: SORT_COLORS,
+        sortBy: 'SORTED BY TITLE'
+    }
+};
