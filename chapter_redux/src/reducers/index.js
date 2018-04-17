@@ -11,7 +11,7 @@ const existingColor =[ {
 ];
 
 export const color = (state={},action) => {
-    const {type,id,color,title,timestamp,rating} = action.payload;
+    const {type, id, title, color, timestamp, rating} = action;
     switch(type){
         case ADD_COLOR: return{
             id: id,
@@ -26,7 +26,7 @@ export const color = (state={},action) => {
 };
 
 export const colors = (state=[],action) => {
-    const {type, id} = action.payload;
+    const {type, id} = action;
     switch(type){
         case ADD_COLOR: return [...state, color({},action)];
         case RATE_COLOR: return state.map(c=>color(c,action));
@@ -34,16 +34,16 @@ export const colors = (state=[],action) => {
         default: return state; 
     }
 };
-//console.log(colors(existingColor,actionAdd));
-//console.log(colors(existingColor,actionRate));
-//console.log(colors(existingColor,actionRemove));
 
 export const sort = (state = "SORTED_BY_DATE", action) => {
-    const {type, sortBy} = action.payload;
+    const {type, sortBy} = action;
     switch(type){
         case SORT_COLORS: return sortBy;
         default: return state;
     }
 };
 
-console.log(sort(existingColor,actionSort));
+//console.log(sort(existingColor,actionSort));
+//console.log(colors(existingColor,actionAdd));
+//console.log(colors(existingColor,actionRate));
+//console.log(colors(existingColor,actionRemove));
