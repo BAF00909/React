@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {v4} from 'uuid';
 import AddColorForm from '../addColorForm';
 import ColorList from '../colorList';
-import MembersList from '../members';
-import HiddenMessages from '../hiddenMessages';
-import CountriesList from '../countryList';
-import PeopleList from '../peopleList';
+//import MembersList from '../members';
+//import HiddenMessages from '../hiddenMessages';
+//import CountriesList from '../countryList';
+//import PeopleList from '../peopleList';
 
 
 const data = [
@@ -110,19 +110,6 @@ class App extends Component {
                 <div>
                     <ColorList colors = {colors} onRemove={this.onRemove} onRate={this.onRate}/>
                 </div>
-                <div>
-                    <PeopleList/>  
-                </div>
-                <div>
-                    <CountriesList/>
-                </div>
-                <div>
-                    <HiddenMessages/>
-                </div>
-                <div>
-                    <MembersList count={5}/>
-                </div>
-
             </div>
         )
     };
