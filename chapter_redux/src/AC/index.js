@@ -25,9 +25,24 @@ export const actionRemove = (id) => ({
     }
 });
 
-export const actionSort = (sortBy) =>  ({
+export const actionSort = (sortBy) =>  (sortBy === 'ratng') ? 
+({
     type: SORT_COLORS,
     payload: {
-        sortBy: sortBy
+        sortBy: 'SORT_BY_RATING'
     }
-});
+}): 
+(sortBy === 'title') ?
+({
+    type: SORT_COLORS,
+    payload: {
+        sortBy: 'SORT_BY_TITLE'
+    }
+}) :
+({
+    type: SORT_COLORS,
+    payload: {
+        sortBy: 'SORT_BY_DATE'
+    }
+}) 
+;
