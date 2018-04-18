@@ -1,25 +1,33 @@
 import { ADD_COLOR, RATE_COLOR, REMOVE_COLOR, SORT_COLORS } from "./constants";
 
-export const actionAdd = {
+export const actionAdd = (id,color,title,timestamp) =>({
     type: ADD_COLOR,
-    id: "4243e1p0-9abl-4e90-95p4-8001l8yf3036",
-    color: "#0000FF",
-    title: "Big Blue",
-    timestamp: "Thu Mar 10 2016 01:11:12 GMT-0800 (PST)"
-};
+    payload: {
+        id: id,
+        color: color,
+        title: title,
+        timestamp: timestamp
+    }
+});
 
-export const actionRate = {
+export const actionRate = (id, rating) => ({
     type: RATE_COLOR,
-    id: "4243e1p0-9abl-4e90-95p4-8001l8yf3036",
-    rating: 4
-};
+    payload: {
+        id: id,
+        rating: rating
+    }
+});
 
-export const actionRemove = {
+export const actionRemove = (id) => ({
     type: REMOVE_COLOR,
-    id: "4243e1p0-9abl-4e90-95p4-8001l8yf3036",
-};
+    payload: {
+        id: id
+    }
+});
 
-export const actionSort = {
+export const actionSort = (sortBy) =>  ({
     type: SORT_COLORS,
-    sortBy: 'SORTED BY TITLE'
-};
+    payload: {
+        sortBy: sortBy
+    }
+});
