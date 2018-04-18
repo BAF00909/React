@@ -1,4 +1,13 @@
-import {createStore, combineReducers} from 'redux';
+import storeFactory from './store/index';
+import {actionAdd,actionSort} from './AC'
+
+const store = storeFactory(true);
+
+store.dispatch(actionAdd("#0000FF","Big Blue"));
+store.dispatch(actionAdd("#0000FF","Big Blue"));
+store.dispatch(actionSort('title'));
+
+/*import {createStore, combineReducers} from 'redux';
 import {colors,sort} from './reducers';
 import {colorsList} from './colorsList';
 import { actionAdd, actionRate, actionSort } from './AC';
@@ -8,10 +17,11 @@ const store = createStore(combineReducers({
        colors,sort
 }),initialState);
 
-store.dispatch(actionAdd("4243e1p0-9abl-4e90-95p4-8001l8yf3036","#0000FF","Big Blue","Thu Mar 10 2016 01:11:12 GMT-0800 (PST)"));
-store.dispatch(actionAdd("4243e1p0-9abl-4e90-95p4-8001l8yf3067","#0000FF","Big Blue","Thu Mar 15 2016 01:11:12 GMT-0800 (PST)"));
+store.dispatch(actionAdd("#0000FF","Big Blue"));
+store.dispatch(actionAdd("#0000FF","Big Blue"));
 store.dispatch(actionSort('title'));
-store.dispatch(actionRate("4243e1p0-9abl-4e90-95p4-8001l8yf3036", 3));
+
 
 window.store = store;
 console.log(store.getState());
+*/

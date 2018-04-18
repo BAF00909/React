@@ -1,12 +1,13 @@
 import { ADD_COLOR, RATE_COLOR, REMOVE_COLOR, SORT_COLORS } from "./constants";
+import {v4} from 'uuid';
 
-export const actionAdd = (id,color,title,timestamp) =>({
+export const actionAdd = (color,title) =>({
     type: ADD_COLOR,
     payload: {
-        id: id,
+        id: v4(),
         color: color,
         title: title,
-        timestamp: timestamp
+        timestamp: new Date().toString()
     }
 });
 
