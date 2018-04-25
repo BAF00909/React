@@ -9,6 +9,10 @@ class MainForm extends Component {
         super(props);
     }
 
+    onSubmit = (formData) => {
+        console.log(formData.formData.form);
+    };
+
     render() {
 
         const {dataForm} = this.props;
@@ -16,8 +20,11 @@ class MainForm extends Component {
  
         return (
             <div>
-                <Form schema={dataForm}>
-
+                <Form 
+                schema={dataForm}
+                onSubmit={this.onSubmit}
+                >
+                   
                 </Form>
             </div>
         );
