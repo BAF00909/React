@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MainForm from '../forms';
-import * as dataForm from '../../EX1.json';
+import * as dataForm from '../../EX3.json';
 
 
 class App extends Component {
