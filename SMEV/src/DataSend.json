@@ -1,0 +1,41 @@
+{
+	"definitions": {
+		"form": {
+			"type": "object",
+			"properties": {
+				"baseRequestId": {
+					"type": "string"
+				},
+				"requestType": {
+					"type": "string"
+				},
+				"inn": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"baseRequestId",
+				"requestType",
+				"inn"
+			]
+		}
+	},
+	"type": "object",
+	"properties": {
+		"requestName": {
+			"type": "string",
+      "enum": ["VS00043v002-FNS001"]
+		},
+		"isTest": {
+			"type": "boolean"
+		},
+		"form": {
+			"$ref": "#/definitions/form"
+		}
+	},
+	"required": [
+		"requestName",
+		"isTest",
+		"form"
+	]
+}
