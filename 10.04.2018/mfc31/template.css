@@ -1,9 +1,13 @@
 .reception-ticket-hrz {
     color: #69321f;
     padding-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
 }
 .reception-ticket-hrz:nth-child(2n){
     background: #fff;
+    padding-bottom: 20px;
+    padding-right: 20px;
 }
 .reception-ticket-hrz .opa {
     display: inline-block;
