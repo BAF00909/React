@@ -146,16 +146,16 @@ $APPLICATION->AddChainItem("Личный кабинет");
 								<span style="display: inline-block;font-weight:bold; margin-bottom: 15px;" data-bind="dateFormat: ticketDateTime, format: 'Simple'"></span>
 								<br/>
 								<!-- ko if: status -->
-								<span class="opa" style="margin-bottom: 15px;">Статус: </span><span data-bind="text: status.recName"></span>
+								<span class="opa" style="margin-bottom: 15px;">Статус: </span> <span data-bind="text: status.recName"></span>
 								<!-- /ko -->
 							</div>
 							<div class="reception-ticket-hrz-2">
 								<!-- ko if: service -->
-								<span class="opa" style="margin-bottom: 15px;">Услуга: </span><span data-bind="text: service.name"></span>
+								<span class="opa" style="margin-bottom: 15px;">Услуга: </span> <span data-bind="text: service.name"></span>
 								<br/>
 								<!-- /ko -->
 								<!-- ko if: specialist && specialist.name -->
-								<span class="opa" style="margin-bottom: 15px;">Специалист: </span><span data-bind="text: specialist.name"></span>
+								<span class="opa" style="margin-bottom: 15px;">Специалист: </span> <span data-bind="text: specialist.name"></span>
 								<!-- /ko -->
 							</div>
 							<div class="reception-ticket-hrz-4 button btn primary" data-bind="click: $parent.printTicket">Печать</div>
