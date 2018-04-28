@@ -71,15 +71,15 @@
 			<div class="modalWindowContent scrollboxShadow p-rgh">
 				<h1 class="m-top">Оценка качества</h1>
 				<div id="serviceAssessmentFormView">
-					<h3>Как вы оцениваете отдельные аспекты качества государственной (муниципальной) услуги?</h3>
+					<h3 style="font-size:18px;">Как вы оцениваете отдельные аспекты качества государственной (муниципальной) услуги?</h3>
 					<div class="questions" data-bind="foreach: questions">
 						<div style="float: left; width: 100%;" class="m-top-dbl m-btm">
-							<h3 data-bind="text: questionName"></h3>
-							<div style="font-style: italic;" data-bind="text: questionDescription"></div>
+							<h3 style="font-size:16px;" data-bind="text: questionName"></h3>
+							<div style="font-size:14px;font-style: italic;" data-bind="text: questionDescription"></div>
 						</div>
 						<div style="width: 100%;">
 						<!-- ko foreach: questionAnswerVariants -->
-							<label class="m-lft" data-bind="css: checkedClass" style="float: left;">
+							<label class="m-lft rating" data-bind="css: checkedClass" style="float: left;">
 								<span data-bind="text: name" class="span-no-white-space m-lft-no"></span>
 								<input type="radio" style="display: none;"
 										data-bind="value: id, attr: { name: $parent.id }, click: function () { $parent.answerClick($parent, $data); }, checked: $parent.answerId" >
@@ -90,8 +90,8 @@
 				</div>
 			</div>
 
-			<div class="m-top btn primary" data-bind="click: cancel">Закрыть</div>			
-			<div class="m-top btn" data-bind="click: submit, css: canMoveNext" id="serviceAssessmentFormViewButton">Отправить выставленные оценки</div>
+			<div class="m-top btn primary" style="float:right; margin-top:10px;" data-bind="click: cancel">Закрыть</div>			
+			<div class="m-top btn" style="margin-top:10px;" data-bind="click: submit, css: canMoveNext" id="serviceAssessmentFormViewButton">Отправить выставленные оценки</div>
 		</div>
 	</div>
 </script>

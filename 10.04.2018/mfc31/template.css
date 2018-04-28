@@ -1,3 +1,10 @@
+h3 {
+    font-size: 18px;
+}
+.modalWindow {
+    color: #69321f;
+    font-size: 16px;
+}
 .modalWindow .btn.primary {
     margin-top: 0;
 }
@@ -874,12 +881,29 @@ h1 {
 .tabs-area.servicePassportContent .tab {
 	justify-content: left;
 }
-.btn.primary {
-    color: #5c5c5c;
-    background: #fff;
-    border: 1px solid #d0d0d0;
+.m-lft.rating.btn.primary {
+    color: #fff;
+    background: #69321f;
+    border: 1px solid #69321f;
     float: right;
     margin-top: 5px;
+}
+.m-lft.rating.btn {
+    color: #fff;
+    background: #e96343;
+    border: 1px solid #e96343;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+.m-lft.rating.btn.primary:hover {
+    background: #e96343;
+    border: 1px solid #e96343;
+}
+.m-lft.rating.btn.primary {
+    margin-right: 20px;
+    border-radius: 5px;
 }
 .category-service-item{
 	font-size: 16px;
@@ -2591,9 +2615,9 @@ margin-right: 2px;
     vertical-align: middle;
 }
 
-.modalWindow:not(.background-dark) *:not(a):not(.btn), .modalWindow:not(.background-dark) *:hover:not(a):not(.btn) {
+/*.modalWindow:not(.background-dark) *:not(a):not(.btn), .modalWindow:not(.background-dark) *:hover:not(a):not(.btn) {
     color: rgba(0, 0, 0, 0.8);
-}
+}*/
 
 .modalWindow .background-dark, .modalWindow .background-light .background-dark {
     color: #ffffff !important;
