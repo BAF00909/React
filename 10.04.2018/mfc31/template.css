@@ -1,3 +1,6 @@
+.modalWindow .btn.primary {
+    margin-top: 0;
+}
 .reception-ticket-hrz {
     color: #69321f;
     padding: 20px;
