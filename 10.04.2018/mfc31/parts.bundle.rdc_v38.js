@@ -12092,6 +12092,7 @@ define('Nvx.ReDoc.Workflow.DynamicForm/Web/Content/Scripts/DynamicFormController
 			self.contentDiv = '#dynamic_form_content_right';
 			self.formCollapseRight = "▼";
 			self.formCollapseDown = "▶";
+			
 
 			// Описатель формы
 			// Необходимо хранить и отдавать на сервер для форм в облегченном формате, т.к. у них нет типа (typename and projectNameWithSuffix)

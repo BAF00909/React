@@ -1,3 +1,7 @@
+.input-container,
+.group.hasPopUp.background-transparent div{
+    margin-bottom: 20px;
+}
 .request-info-block__element {
     margin-bottom: 15px
 }
