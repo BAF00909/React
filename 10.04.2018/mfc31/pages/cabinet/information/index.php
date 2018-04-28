@@ -10,7 +10,7 @@ $APPLICATION->AddChainItem("Заявление");
 		<div class="paddings">
 		<!-- ko template: { name: 'Nvx.ReDoc.Rpgu.PortalModule/Cabinet/View/request/requestGeneralInfo.tmpl.html' } --><!-- /ko -->
 		</div>
-		<div class="container tabs-area">
+		<div class="tabs-area">
 		
 			<nav class="nav-tabset tabset">
 				<ul> 
