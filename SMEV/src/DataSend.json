@@ -10,7 +10,8 @@
 					"type": "string"
 				},
 				"inn": {
-					"type": "string"
+					"type": "string",
+					"format": "file"
 				}
 			},
 			"required": [
