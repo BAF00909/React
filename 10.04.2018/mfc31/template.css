@@ -1373,7 +1373,7 @@ h3{
     opacity: .4;
 }
 
-#MfcYMaps .throbber &gt; *, #MfcListYMaps .throbber &gt; * {
+#MfcYMaps .throbber > *, #MfcListYMaps .throbber > * {
     top: 40%;
 }
 
