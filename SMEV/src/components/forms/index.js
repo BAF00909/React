@@ -7,6 +7,7 @@ class MainForm extends Component {
 
     constructor(props){
         super(props);
+        
     }
 
     onSubmit = (formData) => {
@@ -14,9 +15,7 @@ class MainForm extends Component {
     };
 
     render() {
-
-        const {dataForm} = this.props;
-        console.log(dataForm.definitions.form);
+        const {dataForm} =  this.props;
  
         return (
             <div>

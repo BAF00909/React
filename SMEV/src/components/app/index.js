@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import MainForm from '../forms';
-import * as dataForm from '../../EX3.json';
 
 
 class App extends Component {
@@ -12,15 +11,31 @@ class App extends Component {
 
     constructor(props){
         super(props);
+        this.state = {
+            dataForm : {"":""}
+        }
     };
 
+    componentDidMount(){
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '/src/DataSend.json', true);
+        xhr.send();
+        xhr.onreadystatechange = ()=>{
+          if (xhr.readyState != 4) return;
+          if (xhr.status != 200) {
+            alert(xhr.status + ': ' + xhr.statusText);
+          } else {
+            this.setState({dataForm: JSON.parse(xhr.responseText)});
+          }
+        
+        }
+    };
 
     render() {
-
-
+        console.log(this.state.dataForm);
         return(
             <div className="app">
-               <MainForm dataForm = {dataForm}/>
+               <MainForm dataForm = {this.state.dataForm} />
             </div>
         )
     };

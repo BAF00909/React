@@ -1,0 +1,87 @@
+{
+	"definitions": {
+                          "stаtementItem":   {
+			"type": "object",
+			"properties":{
+				"fileNameStatement": 
+				{
+					"type": "string"
+				}
+			},
+			"required":["fileNameStatement"]
+		},
+		"fileItem":   {
+			"type": "object",
+			"properties": {
+				"fileNameFile": 
+				{
+					"type": ["string","null"]
+				}
+			},
+			"required":["fileNameFile"]
+		},
+		"form": {
+			"type": "object",
+			"properties": {
+				"region": {
+					"type": "string",
+					"minLength":"2",
+					"maxLength":"2",
+					"pattern":"[0-9]{2}"
+				},
+				"externalNumber": {
+					"type": "string"
+				},
+				"switchFileSend": {
+					"type": "string",
+					"enum":["fs","mtom"]
+				},
+				"senderType": {
+					"type": "string",
+					"enum":["MFC","Vedomstvo","Other"]
+				},
+				"actionCode": {
+					"type": "string"
+				},
+				"stаtement":{
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/stаtementItem"
+					}
+				},
+				"file": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/fileItem"
+					}
+				}
+			},
+			"required": [
+				"region",
+				"externalNumber",
+				"switchFileSend",
+				"senderType",
+				"stаtement",
+				"file"
+			]
+		}
+	},
+	"type": "object",
+	"properties": {
+		"requestName": {
+			"type": "string",
+			"enum": ["VS00376v004-RRTR02"]
+		},
+		"isTest": {
+			"type": "boolean"
+		},
+		"form": {
+			"$ref": "#/definitions/form"
+		}
+	},
+	"required": [
+		"requestName",
+		"isTest",
+		"form"
+	]
+}
