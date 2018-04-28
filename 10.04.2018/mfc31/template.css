@@ -1,3 +1,25 @@
+.group.line > div >div {
+    margin-bottom: 20px;
+}
+.group.line .select2-container {
+    margin-bottom: 0;
+}
+.panel-secondary.panel-secondary-form.right-panel-form {
+    margin-top: 30px;
+}
+h2, .h2 {
+    font-size: 24px;
+}
+.nvx-dfjsr-formTitle {
+    font-size: 16px;
+    font-weight: bold;
+}
+#nvxRequestForm .btn.primary {
+    float: none;
+}
+#nvxRequestForm {
+    color: #69321f;
+}
 .btn.primary {
     float: right;
 }
@@ -2745,4 +2767,7 @@ margin-right: 2px;
 .disabled {
     opacity: 0.6;
     pointer-events: none;
+}
+input[type=checkbox] {
+    height: auto;
 }
