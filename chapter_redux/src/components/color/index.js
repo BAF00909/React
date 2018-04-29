@@ -37,7 +37,6 @@ class Color extends Component {
         this.style = null;
         this.refs.title.style.backgroundColor = 'red';
         this.refs.title.style.color = 'white';
-        alert(`${title} : ${rating} -> ${nextProps.rating}`);
     };
 
     componentDidUpdate(prevProps){
@@ -53,7 +52,7 @@ class Color extends Component {
         return(
             <section className="color" style={this.style}>
                 <h1 ref="title">{title}</h1>
-                <button onClick={onRemove}>X</button>
+                <button onClick={onRemove()}>X</button>
                 <div className="color-view" style={{backgroundColor : color}}>
                 </div>
                 <div>

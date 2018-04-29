@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import { actionAdd } from '../../AC';
 
 
 
@@ -16,13 +17,11 @@ class AddColorForm extends Component {
 
 
     submitHandler = (ev) => {
-        const {_title,_color} = this.refs;
-        const {onNewColor} = this.props;
         ev.preventDefault();
-        console.log(_title.value,_color.value);
-        onNewColor(_title.value,_color.value);
-        _title.value = '';
-        _color.value = '#000000';
+        const {_title,_color} = this.refs;
+        this.props.store.dispatch(actionAdd(_title.value,_color.value));
+        _title.value='';
+        _color.value='#000',
         _title.focus();
     };
 

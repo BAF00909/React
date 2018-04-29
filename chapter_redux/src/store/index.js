@@ -3,7 +3,7 @@ import {colors,sort} from '../reducers';
 import {colorsList as StateData} from '../colorsList';
 
 const logger = store => next => action => {
-    let result;
+   let result;
     console.groupCollapsed('dispatching', action.type);
     console.log('prev state', store.getState());
     console.log('action',action);
@@ -11,7 +11,7 @@ const logger = store => next => action => {
 };
 
 const saver = store => next => action => {
-    let result = next(action);
+   let result = next(action);
     localStorage['redux-store'] = JSON.stringify(store.getState());
     return result;
 };

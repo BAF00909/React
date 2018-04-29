@@ -4,7 +4,7 @@ import {v4} from 'uuid';
 import AddColorForm from '../addColorForm';
 import ColorList from '../colorList';
 import reduser from '../../reducers';
-import store from '../../store';
+
 //import CountDown from '../countDown';
 //import MembersList from '../members';
 //import HiddenMessages from '../hiddenMessages';
@@ -106,12 +106,12 @@ class App extends Component {
     };
 
     render() {
-        const {colors} = this.state;
+        const {store} = this.props;
         return(
             <div className="app">
-                <AddColorForm onNewColor = {this.addColor}/>
+                <AddColorForm store = {store}/>
                 <div>
-                    <ColorList colors = {colors} onRemove={this.onRemove} onRate={this.onRate}/>
+                    <ColorList store = {store}/>
                 </div>
             </div>
         )
