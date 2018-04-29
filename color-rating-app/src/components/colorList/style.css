@@ -1,0 +1,6 @@
+.list-color {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 0;
+    justify-content: space-between;
+}
