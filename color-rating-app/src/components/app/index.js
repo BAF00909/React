@@ -1,15 +1,19 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {v4} from 'uuid';
+import  {Component} from 'react'
+
 
 class App extends Component {
+
+    constructor(props){
+        super(props)
+    }
+
     render() {
         return (
             <div>
                 
             </div>
-        );
+        )
     }
 }
 
-export default App;
+export default App
