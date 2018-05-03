@@ -30804,11 +30804,8 @@ require(['knockout',
 		
 
         if(parent.classList.contains('open-list') && parent.classList.contains('opener')) {
-			console.log(target);
             e.preventDefault();
 			var linkOpen = parent;
-			
-			console.log(linkOpen);
 
             if(linkOpen.nextElementSibling) {
 

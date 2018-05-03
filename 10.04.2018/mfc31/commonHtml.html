@@ -49,10 +49,10 @@
             </div>
 
 			<!--ko if: canRateQuality -->
-			<div class="request-info-block__element">
+			<div class="request-info-block__element" style="display: flex;">
                 <div class="request-info-block__label plain-text--bold">Оценка качества услуги:</div>
 				<!-- ko ifnot: isRpguServiceQualityRated -->
-				<div class="btn button primary" data-bind="click: rateQuality">Оценить</div>
+				<div class="btn button primary" style="margin-bottom:20px;" data-bind="click: rateQuality">Оценить</div>
 				<!-- /ko -->
 				<!-- ko if: isRpguServiceQualityRated -->
 				<div class="request-info-block__data plain-text">Услуга оценена</div>
@@ -1650,7 +1650,7 @@
             <!-- ko template: {name: 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/mfcContactInfoView.tmpl.html'} --><!-- /ko -->
         </div>
         <div class="tab" data-bind="visible: tabs.services.active">
-            <div data-bind="template: { name: 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/departmentServiceList.tmpl.html', data: mfcServicesViewModel, if: mfcServicesViewModel }"></div>
+            <div style="width:100%;" data-bind="template: { name: 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/departmentServiceList.tmpl.html', data: mfcServicesViewModel, if: mfcServicesViewModel }"></div>
         </div>
         <div class="tab" data-bind="visible: tabs.tosp.active">
             <div class="second-ofice" data-bind="template: { name: 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/mfcTospListContacts.tmpl.html', data: mfcTospListViewModel, if: mfcTospListViewModel }"></div>
@@ -1736,7 +1736,7 @@
     </div>
 </script>
 <script id='Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/mfcContactInfoView.tmpl.html' type="text/html">
-    <div class="tab cols-2">
+    <div class="tab">
         <!-- ko if: locationCoord != null && locationCoord().length > 1 -->
         <div id="MfcYMaps" class="block-maps" data-bind="value: locationCoord, workWithOneOnYMap: {}">
             <div class="throbber"><div class="icon-throbber-black"></div></div>
