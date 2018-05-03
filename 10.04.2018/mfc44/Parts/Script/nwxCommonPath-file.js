@@ -1,0 +1,22 @@
+window.nvxCommonPath = {
+			departmentView: '/department/index.php?departmentId=',
+			mfcCommonView: '/mfc/',
+			mfcView: '/mfc/index.php?mfcId=',
+			mfcTospView: '/mfc/index.php?tosp=true&mfcId=',
+			serviceView: '/service/index.php?serviceId=',
+			categoryView: '/category/index.php?categoryId=',
+			situationView: '/category/index.php?situationId=',
+			catalogView: '/services/',
+			formView: '/cabinet/request/index.php?fileId=',
+			infoView: '/cabinet/information/index.php?fileId=',
+			attachmentView: '/cabinet/attachment/index.php?fileId=',
+			cabinetReceptionList: '/cabinet/#tab5',
+			treatmentCreateView: '/treatment/index.php?serviceId=',
+			searchView: '/searchservice/index.php',
+			payView: '/pay/myAccountPayments/index.php',
+			authRedirectPath: 'http://44mfc.egspace.ru/authRequest.php',
+			authPortalPath: 'http://testrpgu.egspace.ru',
+			fileProxyPath: 'http://44mfc.egspace.ru/proxy4file.php',
+			elkRedirectPath: 'http://44mfc.egspace.ru/elkSubscribe.php',
+			igtnServiceList: []
+		};
