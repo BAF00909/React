@@ -1125,6 +1125,7 @@ li {
     max-width: 1180px;
     position: relative;
     margin: 0 auto;
+    margin-bottom: 10px;
     background: #e0c8a6;
 }
 .search-area [type=submit] {
@@ -1695,7 +1696,7 @@ left: 20px;}
 border-bottom: 1px #d5b08e dashed;
 }
 body {
-	font-size: 16px;
+	font-size: 14px;
 	font-family:  'PT Sans Regular', sans-serif;
 }
 a  {color: #69321f; cursor: pointer !important;}
@@ -1807,7 +1808,7 @@ margin-top: 0px;
 	height: 19px;
 	width: 16px;
 	position: absolute;
-	left: -23px;
+	left: 5px;
 	top: 5px;
 }
 .logo {
@@ -2863,4 +2864,93 @@ input[type=checkbox] {
 }
 .contact-content > * {
     font-size: 14px;
+}
+#nvxCurrentLocation {
+    display: inline;
+}
+#nvxAuth {
+    display: inline;
+}
+.popup-visible {
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: 20%;
+    z-index: 1000;
+    background-color: #fff;
+    border-radius: 5px;
+}
+#lightbox1 {
+    padding: 35px 35px 15px;
+    color: #69321f;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.25;
+    width: 820px;
+    height: 100%;
+    background: #fbf9fa;
+}
+#lightbox1 .head {
+    padding: 0 60px 35px 0;
+}
+#lightbox1 .scroll-holder {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+}
+#lightbox1 .label {
+    color: #69321f;
+    font-size: 16px;
+}
+#lightbox1 .field-row {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 34px;
+}
+.location-text {
+    position: absolute;
+    top: -9px;
+    left: 23px;
+    height: 34px;
+    border-bottom: 1px #fff dashed;
+}
+.location-text:hover {
+    color: #d5b08e;
+    border-bottom: 1px #d5b08e dashed;
+}
+.field-row .radio {
+    margin: 0;
+}
+.field-row {
+    margin: 10px 0;
+}
+.col-6 {
+    width: 50%;
+    float: left;
+}
+.radio [type=radio]:checked + span {
+    border: #69321f solid 3px;
+}
+.radio span:before {
+    opacity: 0;
+    content: '';
+    visibility: hidden;
+    border-radius: 100%;
+    background: #69321f;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    position: absolute;
+}
+.radio [type=radio]:hover + span {
+    border: #69321f solid 3px;
+}
+.close {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-image: url(../images/kr2.svg);
 }

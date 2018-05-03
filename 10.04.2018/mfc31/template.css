@@ -2864,3 +2864,9 @@ input[type=checkbox] {
 .contact-content > * {
     font-size: 14px;
 }
+#nvxCurrentLocation {
+    display: inline;
+}
+#nvxAuth {
+    display: inline;
+}

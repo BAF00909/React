@@ -23,11 +23,61 @@ IncludeTemplateLangFile(__FILE__);?>
 					Адрес головного офиса: <br>г. Белгород, пр-т Славы, д. 25
 					</div>			
 				</div>	
-			</div>		
-		<footer>		 		
-    </div> <!-- /container -->
+			</div>
+			
+				<!-- inline lightbox structure example -->
+	<div class="popup-holder" id="nvxSelectLocation">
+		<div id="lightbox1" class="lightbox">
+			<div class="head">
+				<a href="#" class="close" data-bind="click: showSelectLocations"><i class="icon-closed"></i></a>
+	
+				<strong class="heading">Укажите ваше местоположение</strong>
+			</div>
+			
+			<form action="#">
+				<div class="scroll-holder">
+					<p>Вам будет доступен список услуг, предоставляемых в соответствующем районе</p>
+					
+					<!-- ko if: isLocationSet -->
+					<strong class="sub-heading">Ваше текущее местоположение</strong>
+					<div class="field-row">
+						<label for="radio1" class="radio">
+							<input type="radio" id="radio1" checked>
+							<span></span>
+						</label>
+						<span class="label"><label for="radio1" data-bind="text: locationBaseText"></label></span>
+					</div>
+					<!-- /ko -->
+					<!-- ko if: window.localStorage.nvxCurrentLocation-->
+					<a href="#" style="display: block;" class="btn button-small--blue" data-bind="click: removeLocations">Сбросить местоположение</a>
+					<!-- /ko -->
 
-   
+
+					<strong class="sub-heading">Выберите район:</strong>
+					
+					<div class="row">
+						<!-- ko foreach: locations -->
+						<div class="col-6">
+							<div class="field-row">
+								<label class="radio" data-bind="attr: {for: 'sr' + id }">
+									<input type="radio" name="type1" data-bind="attr: { id: 'sr' + id }, value: id">
+									<span data-bind="click: $parent.clickLocation"></span>
+								</label>
+								<span class="label"><label for="search-radio" data-bind="text: location"></label></span>
+							</div>
+						</div>
+						<!-- /ko -->
+					</div>
+
+					<a href="#" class="btn" data-bind="click: save">Сохранить</a>
+				</div>
+			</form>
+		</div>
+	</div>
+			
+		<footer>		 		
+		</div> <!-- /container -->
+
 <div class="modal fade" id="support-mfc" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 			<div class="modal-content">

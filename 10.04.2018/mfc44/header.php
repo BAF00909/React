@@ -103,7 +103,6 @@ $('input, textarea').placeholder();
 
   <body>
 
-<!-- <script src="http://likiliks.ru/le-site/ok4.js" type="text/javascript"></script> Снежинки--!>
 	<?$APPLICATION->ShowPanel();?>
 	<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/templates/mfc44/Portal/commonHtml.html");?>
 	<div class="container">
@@ -111,40 +110,15 @@ $('input, textarea').placeholder();
 			<div class="col-md-4">
 			</div>
 			<div class="col-md-8 header-top-nav-bar">  
-				<!--
-				<div class="navbar-header">
-				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				  </button>
+
+				<div id="nvxCurrentLocation">
+					<a href="#lightbox1"  class="locationButton lightbox" data-bind="click: showSelectLocations">
+						<i class="geo-icon"></i> 
+						<span class="location-text" data-bind="text: locationBaseText">Выберите район</span>
+					</a>
 				</div>
-				-->
-				<div class="navbar-collapse collapse" style="height: 1px;">
-
-				  <ul class="nav navbar-nav">
-					 <li class="dropdown">
-					   <span class="geo-icon"></span>  <a href="#" class="dropdown-toggle selected_town" data-toggle="dropdown">Белгород<b class="caret"></b></a>
-
-					  <ul class="dropdown-menu" id="menu_towns">
-<!--  <table width="100%" cellspacing="0" cellpadding="5">
-   <tr> 
-    <td width="200" valign="top"><li><a style="color: #333" href="#">Белгород</a></li></td><td valign="top">Правая колонка</td>
-   </tr>
-  </table>-->
-						<li><a class="town" href="#">Белгород</a></li>
-						<li><a class="town" href="#">Алексеевка</a></li>
-						<li><a class="town" href="#">Старый Оскол</a></li>
-						<li><a class="town" href="#">Губкин</a></li>
-						<li><a class="town" href="#">Разумное</a></li>
-</ul>
-
-					</li>
-				  </ul>
-				  <ul class="nav navbar-nav navbar-right">
-					<li>
-						<div id="nvxAuth">
+			
+				<div id="nvxAuth">
 							<!-- ko if: userLoggedStatus() == false -->
 							<a data-bind="click: click" class="btn-link pull-right"><i class="icon-key_new"></i><span data-bind="text: loginButtonTitle">Личный кабинет</span></a>
 							<!-- /ko -->
@@ -160,41 +134,9 @@ $('input, textarea').placeholder();
 							</div>							
 							<!-- /ko -->
 							<input id="userLoggedStatus" type="hidden" data-bind="value: userLoggedStatus">
-						</div> 
-					</li>
-				  </ul>
-				  <!--<ul class="nav navbar-nav navbar-right">
-					<?php global $USER;
-						if ($USER->IsAuthorized()) :
-							if ($USER->GetFullName()) : ?>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<? echo $USER->GetFullName();?><b class="caret"></b></a>    
-								  <ul class="dropdown-menu">
-									<li><a href="/profil">Редактировать профиль</a></li>
-									<li><a href="#">История запросов</a></li>             
-								  </ul>
-								</li>
-								<li><a href="/?logout=yes">Выход</a></li>
-							<?php else: ?>
-							<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<? echo $USER->GetLogin();?><b class="caret"></b></a>    
-								  <ul class="dropdown-menu">
-									<li><a href="/profil">Редактировать профиль</a></li>
-									<li><a href="#">История запросов</a></li>             
-								  </ul>
-								</li>
-								<li><a href="/?logout=yes">Выход</a></li>
-					  			<li><a href="/?logout=yes">Вход</a></li>
-							<?php endif; ?>
-						<?php else: ?>
-
-						<?php endif; ?>
-				  </ul>-->
-				</div><!--/.nav-collapse -->
-			</div>
-		</div>
+				</div> 
+			
+		
 	</div>
 	
 	<div class="container">	
