@@ -40,7 +40,7 @@ class App extends Component {
                   }
                 ],
                 "sort": "SORTED_BY_DATE"
-            }
+            };
 
         this.addColor = this.addColor.bind(this);
         this.rateColor = this.rateColor.bind(this);
@@ -69,7 +69,7 @@ class App extends Component {
     };
 
    removeColor(id){
-       const colors = this.state.map(color => 
+       const colors = this.state.colors.filter(color => 
         color.id !== id
     );
     this.setState({colors});
