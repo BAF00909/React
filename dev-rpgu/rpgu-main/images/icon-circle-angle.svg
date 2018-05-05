@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="41px" height="41px" viewBox="0 0 41 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>round_arrow 3@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs/>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="vidacha_mobile-copy-3" sketch:type="MSArtboardGroup" transform="translate(-53.000000, -977.000000)" fill="#0063B0">
+            <g id="blue_side" sketch:type="MSLayerGroup" transform="translate(0.000000, 715.000000)">
+                <g id="round_arrow-3-+-Мне-исполняется-20-и" transform="translate(53.000000, 261.000000)" sketch:type="MSShapeGroup">
+                    <g id="round_arrow-3" transform="translate(0.000000, 0.372727)">
+                        <path d="M20.1272727,41.2545455 C31.2432585,41.2545455 40.2545455,32.2432585 40.2545455,21.1272727 C40.2545455,10.0112869 31.2432585,1 20.1272727,1 C9.01128694,1 0,10.0112869 0,21.1272727 C0,32.2432585 9.01128694,41.2545455 20.1272727,41.2545455 L20.1272727,41.2545455 Z M20.1272727,38.2727273 C10.6580997,38.2727273 2.98181818,30.5964458 2.98181818,21.1272727 C2.98181818,11.6580997 10.6580997,3.98181818 20.1272727,3.98181818 C29.5964458,3.98181818 37.2727273,11.6580997 37.2727273,21.1272727 C37.2727273,30.5964458 29.5964458,38.2727273 20.1272727,38.2727273 L20.1272727,38.2727273 Z" id="Shape"/>
+                        <g id="Rectangle-8-+-Rectangle-9" transform="translate(18.990608, 21.127273) rotate(-45.000000) translate(-18.990608, -21.127273) translate(11.822775, 14.676224)">
+                            <rect id="Rectangle-8" x="10.034965" y="-1.06954073e-13" width="2.86713287" height="11.4685315"/>
+                            <path d="M10.7517483,8.6013986 L10.7517483,11.4685315 L0.716783217,11.4685315 L0.716783217,8.6013986 L10.7517483,8.6013986 L10.7517483,8.6013986 Z" id="Rectangle-9"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

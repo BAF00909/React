@@ -1,0 +1,29 @@
+<script type="text/x-jsrender">
+<!-- ko with: {{>viewModelPath}} -->
+	<div data-bind="enable: ControlEnabling, visible: ControlVisibility" data-control-path="{{>Path}}" data-control-type="select">
+		<h4 data-bind="css: { 'input-required': IsMandatory, 'input-err': notValidClass }, attr: { title: errorMessage }">
+			{{>Caption}}
+			{{if Tooltip != null && Tooltip != ""}}
+			<span class="icon icon-question-white transparent nvx-dfjsr-tooltip" title="{{>Tooltip}}"></span>
+			{{/if}}
+		</h4>
+	{{if ControlKey == 'CheckComboBox'}}
+		<div data-bind="element: element" class="select2checklist inputBox">
+			<select multiple="multiple" data-bind="select2checklistdf:{}, value: selectedValue, valueAllowUnset: true, enable: ControlEnabling, foreach: options">
+				<option data-bind='attr: {value: LV}, text: DA'></option>
+			</select>
+			<span class="inputBox-tooltip" data-bind="if: !ControlEnabling(), visible: !ControlEnabling()">
+				Для заполнения (изменения) этого поля требуется заполнить персональные данные в личном кабинете <a href="https://esia.gosuslugi.ru/profile/user/personal">Единого портала государственных услуг</a>. После внесения изменений необходимо выйти из личного кабинета Регионального портала государственных и муниципальных услуг и авторизоваться по новой.
+			</span>
+		</div>
+	{{else}}
+		<div data-bind="element: element" class="inputBox">
+			<select data-bind="select2: selectedValueS2, options: options, nullTitle : nullTitle, value: selectedValueS2, valueAllowUnset: true, optionsText: 'DA', optionsValue: 'LV', enable: ControlEnabling"></select>
+			<span class="inputBox-tooltip" data-bind="if: !ControlEnabling(), visible: !ControlEnabling()">
+				Для заполнения (изменения) этого поля требуется заполнить персональные данные в личном кабинете <a href="https://esia.gosuslugi.ru/profile/user/personal">Единого портала государственных услуг</a>. После внесения изменений необходимо выйти из личного кабинета Регионального портала государственных и муниципальных услуг и авторизоваться по новой.
+			</span>
+		</div>
+	{{/if}}
+	</div>
+<!-- /ko -->
+</script>

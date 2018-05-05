@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>red_ring@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="08-45" sketch:type="MSArtboardGroup" transform="translate(-357.000000, -300.000000)" fill="#ED4960">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(337.000000, 277.000000)">
+                <g id="red_ring" transform="translate(20.000000, 23.000000)" sketch:type="MSShapeGroup">
+                    <path d="M12,2 C17.522,2 22,6.476 22,12 C22,17.524 17.522,22 12,22 C6.477,22 2,17.524 2,12 C2,6.476 6.477,2 12,2 M12,0 C5.383,0 0,5.383 0,12 C0,18.617 5.383,24 12,24 C18.617,24 24,18.617 24,12 C24,5.383 18.617,0 12,0" id="Fill-1"></path>
+                    <rect id="Rectangle-83" x="11.3" y="16" width="2" height="2"></rect>
+                    <path d="M11.3959473,5.989 L13.3959472,5.989 L13.3959473,13.989 L11.3959473,13.989 L11.3959473,5.989 Z" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

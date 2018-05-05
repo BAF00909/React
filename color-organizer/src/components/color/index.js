@@ -4,6 +4,7 @@ import '../../stylesheets/Color.scss';
 
 const Color = ({title,color,rating=0,onRemove=f=>f,onRate=f=>f}) => {
     
+    
     return (
         <section className='color'>
             <h1>{title}</h1>

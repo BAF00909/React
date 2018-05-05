@@ -1,0 +1,109 @@
+@charset "UTF-8";/* Пример изменения иконки категорий */.OtherService:before {
+  background: none !important;
+  content: "" !important;
+  color: #62b84d !important;
+}
+
+.RCategory_1:before {
+  background: none !important;
+  content: "" !important;
+  color: #768089 !important;
+}/* Пример иконки из папки icons */.RCategory_2:before {
+  content: "" !important;
+  background-image: url(icons/33.svg) !important;
+}/* Пример изменения иконки департаметнтов */.RStateStructure_10000038760:before {
+  background-image: url(icons/29.svg) !important;
+}/* Пример изменения иконки жизненных ситуаций */.RLifeEvent_40005 .img-holder:before {
+  background-image: url(icons/39.svg) !important;
+}/* Старые иконки с цветами. Цвет можно менять.
+.drop-list{
+	.icon-icon10 { color: #5cc4ca; }
+	.icon-icon11 { color: #c22353; }
+	.icon-icon12 { color: #2b7db0; }
+	.icon-icon13 { color: #e77a2b; }
+	.icon-icon14 { color: #882c80; }
+	.icon-icon15 { color: #5cc4ca; }
+	.icon-icon16 { color: #65b94d; }
+	.icon-icon17 { color: #c22353; }
+	.icon-icon18 { color: #0b8d66; }
+	.icon-icon19 { color: #2e7daf; }
+	.OtherService,
+	.icon-icon20 { color: #62b84d; }
+	.icon-icon21 { color: #f28230; }
+	.icon-icon22 { color: #768089; }
+	.icon-icon23 { color: #768089; }
+	.icon-icon24 { color: #7b858e; }
+	.icon-icon25 { color: #0b8d66; }
+}
+
+
+.icon-icon10:before { content: "\e92f"; }
+.icon-icon11:before { content: "\e930"; }
+.icon-icon12:before { content: "\e931"; }
+.icon-icon13:before { content: "\e932"; }
+.icon-icon14:before { content: "\e933"; }
+.icon-icon15:before { content: "\e934"; }
+.icon-icon16:before { content: "\e935"; }
+.icon-icon17:before { content: "\e936"; }
+.icon-icon18:before { content: "\e937"; }
+.icon-icon19:before { content: "\e938"; }
+.icon-icon20:before { content: "\e939"; }
+.icon-icon21:before { content: "\e93a"; }
+.icon-icon22:before { content: "\e93b"; }
+.icon-icon23 .path1:before {
+	content: "\e93c";
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path2:before {
+	content: "\e93d";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path3:before {
+	content: "\e93e";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
+}
+.icon-icon23 .path4:before {
+	content: "\e93f";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path5:before {
+	content: "\e940";
+	margin-left: -1em;
+	color: rgb(255, 255, 255);
+}
+.icon-icon23 .path6:before {
+	content: "\e941";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path7:before {
+	content: "\e942";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path8:before {
+	content: "\e943";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path9:before {
+	content: "\e944";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path10:before {
+	content: "\e945";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon23 .path11:before {
+	content: "\e946";
+	margin-left: -1em;
+	color: rgb(118, 128, 137);
+}
+.icon-icon24:before { content: "\e947"; }
+.icon-icon25:before { content: "\e948"; }
+*/
