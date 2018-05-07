@@ -1726,6 +1726,7 @@ a  {color: #69321f; cursor: pointer !important;}
 	color: #fff;
 	padding: 0px;
     margin-top: 5px;
+    font-size: 14px;
 }
 .header-bottom-nav-bar  a {
 	color: #69321f;
@@ -2493,7 +2494,7 @@ border: 1px solid rgb(221, 221, 221);
 	padding-top: 30px;
     padding-bottom: 30px;
 	margin-top: 30px;
-    background: #e3be9b;
+    background: #fdf3e9;
 }
 
 
@@ -2892,9 +2893,10 @@ input[type=checkbox] {
     z-index: 1000;
     background-color: #fff;
     border-radius: 5px;
+    border: 1px solid #e96343;
 }
 #lightbox1 {
-    padding: 35px 35px 15px;
+    padding: 30px;
     color: #69321f;
     position: relative;
     font-size: 16px;
@@ -2904,7 +2906,7 @@ input[type=checkbox] {
     background: #fbf9fa;
 }
 #lightbox1 .head {
-    padding: 0 60px 35px 0;
+    padding-bottom: 30px;
 }
 #lightbox1 .scroll-holder {
     overflow-y: auto;
@@ -2922,6 +2924,8 @@ input[type=checkbox] {
 }
 .location-text {
     position: absolute;
+    font-size: 14px;
+    font-weight: normal;
     top: -9px;
     left: 23px;
     height: 34px;

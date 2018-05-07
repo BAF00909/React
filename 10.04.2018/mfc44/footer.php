@@ -39,7 +39,8 @@ IncludeTemplateLangFile(__FILE__);?>
 					<p>Вам будет доступен список услуг, предоставляемых в соответствующем районе</p>
 					
 					<!-- ko if: isLocationSet -->
-					<strong class="sub-heading">Ваше текущее местоположение</strong>
+					<strong class="sub-heading">Ваше текущее местоположение:</strong>
+					<div>
 					<div class="field-row">
 						<label for="radio1" class="radio">
 							<input type="radio" id="radio1" checked>
@@ -47,15 +48,16 @@ IncludeTemplateLangFile(__FILE__);?>
 						</label>
 						<span class="label"><label for="radio1" data-bind="text: locationBaseText"></label></span>
 					</div>
+					</div>
 					<!-- /ko -->
 					<!-- ko if: window.localStorage.nvxCurrentLocation-->
-					<a href="#" style="display: block;" class="btn button-small--blue" data-bind="click: removeLocations">Сбросить местоположение</a>
+					<a href="#" class="btn button-small--blue" data-bind="click: removeLocations">Сбросить местоположение</a>
 					<!-- /ko -->
 
-
+					<!-- ko ifnot: isLocationSet -->
 					<strong class="sub-heading">Выберите район:</strong>
 					
-					<div class="row">
+					<div class="row" style="margin:30px 0;">
 						<!-- ko foreach: locations -->
 						<div class="col-6">
 							<div class="field-row">
@@ -68,8 +70,8 @@ IncludeTemplateLangFile(__FILE__);?>
 						</div>
 						<!-- /ko -->
 					</div>
-
 					<a href="#" class="btn" data-bind="click: save">Сохранить</a>
+					<!-- /ko -->
 				</div>
 			</form>
 		</div>
