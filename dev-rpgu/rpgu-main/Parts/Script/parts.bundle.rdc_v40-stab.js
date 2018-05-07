@@ -31285,7 +31285,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/Scripts/AuthenticationController/si
 
 	return signLib;
 });
-define('nvx/ServiceInfoViewModelPage', //остановился тут
+define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 ['knockout',
 'jquery',
 'Nvx.ReDoc.Rpgu.PortalModule/Portal/Script/portalPageController',
@@ -31294,22 +31294,154 @@ define('nvx/ServiceInfoViewModelPage', //остановился тут
 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/Script/MfcListViewModel',
 'javascriptExtention',
 'select2lib',
-'Nvx.ReDoc.WebInterfaceModule/Content/lib.fix/knockout/customBindingHandlers'],
-	function(
-		ko,
-		$,
-		ServicePassportInfoViewModelportalPageController,
-		Tab,
-		modal,
-		MfcListViewModel
-	){
+'Nvx.ReDoc.WebInterfaceModule/Content/lib.fix/knockout/customBindingHandlers'
+],
+	function(ko,$,portalPageController,Tab,modal,MfcListViewModel){
 
 		var ServiceInfoViewModelPage = function(){
 			var self = this;
-			//заголовок страницы
-			self.titlePage = ko.observable();
-			//описание услуги
-			self.description = ko.observable();
+		//идентификатор папорта услуги
+		self.passportId = window.getUrlVarsFunction()['serviceid'];
+		//Наименование паспорта
+		self.passportFullName = ko.observable('');
+		//описание услуги
+		self.descriptionService = ko.observable('');
+		//досументы
+		self.documentsService = ko.observable('');
+		//дополнительная инфрмация
+		self.additionalInformation = ko.observable(null);
+		//модель списка мфц, оказывающих услугу
+		self.mfcList = ko.observable(null);
+		//услуги из паспорта
+		self.services = ko.observableArray();
+		//услуги из паспорта
+		self.currentService = ko.observable();
+		//
+		self.serviceId = ko.observable('');
+
+		self.department = ko.observable(null);
+		self.currentService(window.getUrlVarsFunction()['serviceid']);
+
+		//btx
+		self.depLink = '';
+		self.goToProfile = function () {
+			if (self.department() != null)
+				window.location = (window.nvxCommonPath != null ? window.nvxCommonPath.departmentView : '/department/index.php?departmentId=') + self.department().id;
+		};
+
+		//показывать методы подачи заявки
+		self.visibleRequestMethods = ko.observable(true);
+		//показывать методы получения результата
+		self.visibleResponseMethods = ko.observable(true);
+
+		//услуга содержит документы
+		self.hasDocuments = ko.observable(false);
+
+		//права и обязаности объекта текущей услуги
+		self.currentServiceRightsAndDutuesObject = ko.observable(null);
+
+		//права и обязаности субъекта текущей услуги
+		self.currentServiceRightsAndDutuesSubject = ko.observable(null);
+
+		// отображать кнопку Подать жалобу
+		self.canComplaint = ko.observable(false);
+		//Поле для внешних порталов, issues/1157
+		self.canGoIgtn = ko.observable(false);
+			self.normalizeHeight = function() {
+				$('.content').css('min-height', '0');
+				$('.tabsCont').css('min-height', '0');
+				$('.content').css('min-height', $('body').outerHeight() - $('.header').outerHeight() - $('.usefulLinksCont').outerHeight() - 50);
+	
+				$('.tabsCont').css('min-height', '0');
+				$('.tabsCont').css('min-height', $('.content').height() - 20 - $('.content h1').outerHeight());
+			};
+	
+			//создать вкладки
+			self.createTabs();
+		};
+
+		ServiceInfoViewModelPage.prototype.createTabs = function () {
+			var self = this;
+			self.tabs = {};
+			/**
+			 * Убираем активность у всех вкладок.
+			 */
+			self.tabs.unactiveTabs = function () {
+				//Убираем активность у всех вкладок.
+				for (var index in self.tabs) {
+					if (typeof (self.tabs[index]) === 'object') {
+						self.tabs[index].active(false);
+					}
+				}
+	
+				self.normalizeHeight();
+			};
+	
+			//btx - portalPageController.navigate
+			self.tabs.description = new Tab('Описание');
+			self.tabs.description.onclick = function () {
+				if (portalPageController.navigate != null) {
+					portalPageController.navigate('/portal/service/{0}/description/{1}'.format(self.passportId, self.currentService().targetId));
+				} else {
+					self.setActiveTab(null);
+				}
+			};
+			self.tabs.description.activate = function () {
+				//Убираем активность у всех вкладок.
+				self.tabs.unactiveTabs();
+				//Выставляем активность вкладке по которой кликнули.
+				self.tabs.description.active(true);
+			};
+	
+			self.tabs.documents = new Tab('Документы');
+			self.tabs.documents.onclick = function () {
+				if (portalPageController.navigate != null) {
+					portalPageController.navigate('/portal/service/{0}/docs/{1}'.format(self.passportId, self.currentService().targetId));
+				} else {
+					self.setActiveTab('docs');
+				}
+			};
+			self.tabs.documents.activate = function () {
+				//Убираем активность у всех вкладок.
+				self.tabs.unactiveTabs();
+				//Выставляем активность вкладке по которой кликнули.
+				self.tabs.documents.active(true);
+			};
+	
+			self.tabs.additionalInformation = new Tab('Дополнительная информация');
+			self.tabs.additionalInformation.onclick = function () {
+				if (portalPageController.navigate != null) {
+					portalPageController.navigate('/portal/service/{0}/more/{1}'.format(self.passportId, self.currentService().targetId));
+				} else {
+					self.setActiveTab('more');
+				}
+			};
+			self.tabs.additionalInformation.activate = function () {
+				//Убираем активность у всех вкладок.
+				self.tabs.unactiveTabs();
+				//Выставляем активность вкладке по которой кликнули.
+				self.tabs.additionalInformation.active(true);
+			};
+	
+			self.tabs.mfcList = new Tab('МФЦ, оказывающие услугу');
+			self.tabs.mfcList.visible = ko.observable(false);
+			self.tabs.mfcList.onclick = function () {
+				if (portalPageController.navigate != null) {
+					portalPageController.navigate('/portal/service/{0}/mfc/{1}'.format(self.passportId, self.currentService().targetId));
+				} else {
+					self.setActiveTab('mfc');
+				}
+			};
+			self.tabs.mfcList.activate = function () {
+				//Убираем активность у всех вкладок.
+				self.tabs.unactiveTabs();
+				//Выставляем активность вкладке по которой кликнули.
+				self.tabs.mfcList.active(true);
+			};
+	
+			self.tabs.description.active(true);
+	
+			setTimeout(function () { self.normalizeHeight(); },100);
 		};
 
 		ServiceInfoViewModelPage.prototype.loadServiceInfo = function(){
@@ -31321,9 +31453,15 @@ define('nvx/ServiceInfoViewModelPage', //остановился тут
 						if (response.hasError) {
 							console.log(response);
 						} else {
-							self.titlePage(response.result.services[0].serviceFullName);
-							self.description(response.result.firstService.description);
-							console.log(self.description());
+							self.passportFullName(response.result.services[0].serviceFullName);
+							self.descriptionService(response.result.firstService.description);
+							self.documentsService(response.result.firstService.documents);
+							self.additionalInformation(response.result.additionalInformation);
+							self.mfcList(response.result.mfcList);
+							self.serviceId(response.result.firstService.serviceId);
+							console.log(self.descriptionService());
+							console.log(self.additionalInformation());
+							
 						}
 					})
 					.fail(function(jqXHR) {
@@ -31335,10 +31473,29 @@ define('nvx/ServiceInfoViewModelPage', //остановился тут
 					});
 		};
 
+		ServiceInfoViewModelPage.prototype.setActiveTab = function (selectTab) {
+			var self = this;
+	
+			switch (selectTab) {
+				case 'docs':
+					self.tabs.documents.activate();
+					break;
+				case 'more':
+					self.tabs.additionalInformation.activate();
+					break;
+				case 'mfc':
+					self.tabs.mfcList.activate();
+					break;
+				default:
+					self.tabs.description.activate();
+					break;
+			}
+		};
+
 		ServiceInfoViewModelPage.prototype.createTreatment = function () {
 			var self = this;
 				
-			var epguLink = self.description().epguLink;
+			var epguLink = self.descriptionService().epguLink;
 	
 			if (epguLink != null && epguLink != '') {
 				window.open(epguLink, '_blank');
@@ -31346,7 +31503,7 @@ define('nvx/ServiceInfoViewModelPage', //остановился тут
 				if (portalPageController.navigate != null) {
 					portalPageController.navigate("/portal/service/{0}/treatment".format(window.getUrlVarsFunction()['serviceId']));
 				} else {
-					window.location = (window.nvxCommonPath != null ? window.nvxCommonPath.treatmentCreateView : '/treatment/index.php?serviceId=') + window.getUrlVarsFunction()['serviceId'];
+					window.location = (window.nvxCommonPath != null ? window.nvxCommonPath.treatmentCreateView : '/treatment/index.php?serviceId=') + self.serviceId();
 				}
 			}
 		};
