@@ -1887,19 +1887,29 @@ margin-top: 0px;
 .carousel-indicators li {
 	border: 1px solid #bf9778;
 }
+.news-item {
+    margin-bottom: 15px;
+}
 .news-item h3,
 .news-item--title {
 	color: #c39367;
 	font-size: 16px;
 	margin-bottom: 0;
 }
+.news-item--title {
+    display: inline-block;
+    color: #69321f;
+    font-weight: bold;
+    margin-right: 10px;
+}
 .news-item--date {
 	color: #c39367;
-	font-size: 12px;
-	margin-bottom: 5px;
+	font-size: 14px;
+	margin-bottom: 0;
 }
-.read-more {
-	color: #c39367;
+.read-more a{
+    font-size: 14px;
+	color: #e96343;
 	text-decoration: underline;
 }
 .read-more:hover,

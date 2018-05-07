@@ -15,47 +15,27 @@ document.getElementById("news_href").href=document.getElementById("news_href").h
 	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>
-
-	<?if(!$arItem["PREVIEW_PICTURE"]["SRC"]):?>	
-
-	<div class="col-md-4">
+	<div class="news-item">
 		
-		<p class="news-item--date" style="margin-top: 20px;">
-			<? $arDATE = ParseDateTime($arItem["DISPLAY_ACTIVE_FROM"], FORMAT_DATETIME);
-  			echo $arDATE["DD"].".".$arDATE["MM"].".".$arDATE["YYYY"]; ?>
-		</p>
-
-		<a class="news-item--title-container" href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">
-			<?if(iconv_strlen($arItem["NAME"]) > 44): ?>
-			<p class="news-item--title"><?echo mb_strimwidth($arItem["NAME"],0,44,'...') ?></p>
-			<?else:?>
-			<p class="news-item--title"><?echo $arItem["NAME"] ?></p>
-			<?endif?>
-		</a>
-		
-		<div class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-
-			<?if(iconv_strlen($arItem["PREVIEW_TEXT"]) > 200): ?>
-			<?echo mb_strimwidth($arItem["PREVIEW_TEXT"],0,200,'...') ?>
-			<?else:?>
-			<?echo $arItem["PREVIEW_TEXT"] ?>
-			<?endif?>
-
-		</div>
-
-		<p class="read-more"><a href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">Подробнее ></a></p>
-	</div>
-
-	<?else:?>
-
-	<div class="col-md-4">
-		<div class="news-item" id="<?=$this->GetEditAreaId($arItem['ID']);?>"> 
-			<img class="preview_picture img-responsive" border="0" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>" height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>" alt="<?=$arItem["NAME"]?>" title="<?=$arItem["NAME"]?>" style="float:left" />
-		</div>
-
 		<p class="news-item--date">
-			<? $arDATE = ParseDateTime($arItem["DISPLAY_ACTIVE_FROM"], FORMAT_DATETIME);
-  			echo $arDATE["DD"].".".$arDATE["MM"].".".$arDATE["YYYY"]; ?>
+			<? 
+			$_monthsList = array(
+				"01" => "января",
+				"02" => "февраля",
+				"03" => "марта",
+				"04" => "апреля",
+				"05" => "мая",
+				"06" => "июня",
+				"07" => "июля",
+				"08" => "августа",
+				"09" => "сентября",
+				"10" => "октября",
+				"11" => "ноября",
+				"12" => "декабря"
+			  );
+			$arDATE = ParseDateTime($arItem["DISPLAY_ACTIVE_FROM"], FORMAT_DATETIME);
+			  echo $arDATE["DD"]. " " .$_monthsList[$arDATE["MM"]]. " " .$arDATE["YYYY"]; 
+			  ?>
 		</p>
 
 		<a class="news-item--title-container" href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">
@@ -66,10 +46,10 @@ document.getElementById("news_href").href=document.getElementById("news_href").h
 			<?endif?>
         </a>
 
-		<p class="read-more"><a href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">Подробнее ></a></p>
+		<span class="read-more"><a href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">Подробнее ></a></span>
+		<hr style="margin: 10px 0;">
 	</div>
-
-	<?endif;?>
+	
 			
 	<?endforeach;?>
 </div>
