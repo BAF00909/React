@@ -31347,7 +31347,8 @@ define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 		self.canComplaint = ko.observable(false);
 		//Поле для внешних порталов, issues/1157
 		self.canGoIgtn = ko.observable(false);
-			self.normalizeHeight = function() {
+
+		self.normalizeHeight = function() {
 				$('.content').css('min-height', '0');
 				$('.tabsCont').css('min-height', '0');
 				$('.content').css('min-height', $('body').outerHeight() - $('.header').outerHeight() - $('.usefulLinksCont').outerHeight() - 50);
@@ -31446,6 +31447,7 @@ define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 
 		ServiceInfoViewModelPage.prototype.loadServiceInfo = function(){
 			var self = this;
+			var trobberId = modal.CreateTrobberDiv2();
 			//url запроса услуги
 			var url = '/Nvx.ReDoc.StateStructureServiceModule/ServiceController/GetServicePassportInformationBrief/' + window.getUrlVarsFunction()['serviceId'] +'/'+ window.getUrlVarsFunction()['targetid'];	
 			$.ajax({ url: url, method: 'GET',cache: false, headers: { proxy: true }})
@@ -31459,9 +31461,8 @@ define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 							self.additionalInformation(response.result.additionalInformation);
 							self.mfcList(response.result.mfcList);
 							self.serviceId(response.result.firstService.serviceId);
-							console.log(self.descriptionService());
-							console.log(self.additionalInformation());
-							
+							self.canComplaint(response.result.firstService.isFgisDoService);
+							console.log(response.result);
 						}
 					})
 					.fail(function(jqXHR) {
@@ -31506,6 +31507,35 @@ define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 					window.location = (window.nvxCommonPath != null ? window.nvxCommonPath.treatmentCreateView : '/treatment/index.php?serviceId=') + self.serviceId();
 				}
 			}
+		};
+
+		ServiceInfoViewModelPage.prototype.createComplaint = function () {
+			var self = this;
+			var trobberId = modal.CreateTrobberDiv2();
+			var url = "/Rpgu/Complaint/Create";
+			var data = { id: self.serviceId() };
+			$.ajax({ url: url, data: data, type: 'POST', headers: { proxy: true } })
+				.done(function (response) {
+					modal.CloseTrobberDiv2(trobberId);
+					if (response.hasError) {
+						modal.errorModalWindow(response.errorMessage);
+					} else {
+						if (response.fileId != null) {
+							//Адрес для перехода к вновь созданному делу
+							var fileUrl = (window.nvxCommonPath != null ? window.nvxCommonPath.formView + '{0}' : '/cabinet/request/{0}/form').format(response.fileId);
+							window.location = fileUrl;
+						} else {
+							modal.errorModalWindow("Ошибка при оформлении жалобы. Проверьте авторизацию и попробуйте ещё раз.");
+						}
+					}
+				}).fail(function (jqXHR, textStatus, errorThrown) {
+					var message = jqXHR.responseJSON && jqXHR.responseJSON.errorMessage ?
+									jqXHR.responseJSON.errorMessage :
+									'Ошибка при создании услуги. Подробности: ' + errorThrown;
+					modal.errorModalWindow(message);
+				}).always(function () {
+					modal.CloseTrobberDiv2(trobberId);
+				});
 		};
 
 		ServiceInfoViewModelPage.prototype.start = function(){

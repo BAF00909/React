@@ -31,10 +31,10 @@ $APPLICATION->AddChainItem("Информация об услуге");
         </nav>
 
         <!-- ko if: currentService -->
-        <div class="btn get_search  button-small--blue" data-bind="click: createTreatment, visible: currentService()">Получить услугу</div>
+        <div style="margin: 0px 20px 0 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createTreatment, visible: currentService()">Получить услугу</div>
         <!-- /ko -->
 
-        <!-- ko if: canComplaint -->
+        <!-- ko if: tabs.additionalInformation.active && canComplaint-->
         <div style="margin: 0px 20px 0 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createComplaint">Подать жалобу</div>
         <!-- /ko -->
 
