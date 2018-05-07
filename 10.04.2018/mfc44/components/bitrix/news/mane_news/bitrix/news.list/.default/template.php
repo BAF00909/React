@@ -39,8 +39,8 @@ document.getElementById("news_href").href=document.getElementById("news_href").h
 		</p>
 
 		<a class="news-item--title-container" href="/pressroom/news/detail/?ELEMENT_ID=<?echo $arItem['ID']?>">
-			<?if(iconv_strlen($arItem["NAME"]) > 44): ?>
-			<p class="news-item--title"><?echo mb_strimwidth($arItem["NAME"],0,44,'...') ?></p>
+			<?if(iconv_strlen($arItem["NAME"]) > 75): ?>
+			<p class="news-item--title"><?echo mb_strimwidth($arItem["NAME"],0,75,'...') ?></p>
 			<?else:?>
 			<p class="news-item--title"><?echo $arItem["NAME"] ?></p>
 			<?endif?>

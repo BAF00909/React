@@ -1641,6 +1641,9 @@ hr {
 border: 0px;
 font-size: 14px;
 float: right;}
+.news-list .section-title a {
+    text-transform: uppercase;
+}
 .news-list .news-date-time {
 margin: 10px 0px;
 display: inline-block;
