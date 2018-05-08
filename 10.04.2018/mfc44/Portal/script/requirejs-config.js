@@ -74,6 +74,7 @@ requirejs.config({
 		'opal-arrayExt': 'script/rubytojs/ArrayExt.min',
 		'knockout-jqueryui/dialog': 'script/knockout-jqueryui/dialog',
 		'Nvx.ReDoc.WebInterfaceModule/Content/Scripts/ModalDialog': 'script/ModalDialog',
+		'Nvx.ReDoc.WebInterfaceModule/Content/Scripts/Helpers/asyncSignLibDynamicLoad': 'script/cadesplugin/cades_acync',
 		//fullcalendar.io
 		'fullcalendar': 'script/fullcalendar/fullcalendar.min',
 		'fullcalendar.ru': 'script/fullcalendar/ru',

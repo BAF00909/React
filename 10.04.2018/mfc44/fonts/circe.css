@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'circe';
+    src: url('fonts/circe.eot');
+    src: url('fonts/circe.eot') format('embedded-opentype'),
+         url('fonts/circe.woff2') format('woff2'),
+         url('fonts/circe.woff') format('woff'),
+         url('fonts/circe.ttf') format('truetype'),
+         url('fonts/circe.svg#circe') format('svg');
+}
