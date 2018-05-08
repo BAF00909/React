@@ -30,17 +30,19 @@ $APPLICATION->AddChainItem("Информация об услуге");
             </ul>
         </nav>
 
+        <div class="btn-panell" style="display:flex;flex-direction:column;">
         <!-- ko if: currentService -->
-        <div style="margin: 0px 20px 0 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createTreatment, visible: currentService()">Получить услугу</div>
+        <div style="margin: 0px 20px 10px 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createTreatment, visible: currentService()">Получить услугу</div>
         <!-- /ko -->
 
         <!-- ko if: tabs.additionalInformation.active && canComplaint-->
-        <div style="margin: 0px 20px 0 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createComplaint">Подать жалобу</div>
+        <div style="margin: 0px 20px 10px 0; float: right" class="btn b-create button-small button-small--blue" data-bind="click: createComplaint">Подать жалобу</div>
         <!-- /ko -->
 
         <!-- ko if: canGoIgtn -->
         <a class="btn btn-get-doc button-small--blue" href="/igtn/">Получить документ на оплату</a>
         <!-- /ko -->
+        </div>
 
         <!-- Описание -->
         <div id="tabDescription" class="tab" data-bind="'visible': tabs.description.active">
