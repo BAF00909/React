@@ -2688,21 +2688,33 @@ margin-right: 2px;
     position: absolute !important;
 }
 #nvxAuth .auth-submenu {
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    border: 1px solid #69321f;
     background-color: white;
     position: absolute;
     width: 200px;
     top: 31px;
-    right: 16px;
+    right: 31px;
     margin: 0 -31px -1px;
-    padding: 30px 30px;
+    padding: 0;
     line-height: 40px;
     box-sizing: border-box;
     z-index: 9999;
+    text-align: right;
 }
 #nvxAuth .auth-submenu .auth-submenu-item {
     color: #69321f;
     display: block;
+    padding: 0 15px;
+    margin: 0;
+    border-bottom: 1px solid #69321f;
+}
+
+#nvxAuth .auth-submenu .auth-submenu-item:last-of-type{
+    border: none;
+}
+
+#nvxAuth .auth-submenu .auth-submenu-item:hover {
+    background: #f8e3d0;
 }
 .modalWindowOverlay {
     background-color: rgba(0, 0, 0, 0.4);
@@ -2818,12 +2830,12 @@ margin-right: 2px;
 }
 
 .modalWindow:not(.background-dark) .button {
-    border-color: >#69321f;
+    border-color: #69321f;
     color: #fff;
 }
 
 .modalWindow:not(.background-dark) .button:hover {
-    color: >#69321f;
+    color: #69321f;
 }
 
 .modalWindow > .button, .modalWindow .b-modal, .modalWindow .b-modal > form > .button {
