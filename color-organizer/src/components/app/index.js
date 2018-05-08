@@ -61,9 +61,12 @@ class App extends Component {
     };
 
     rateColor(rating,id){
+        console.log(rating);
+        
         const colors = this.state.colors.map(color => 
-            color.id !== id ? color : {...color, rating}
+            (color.id !== id) ? color : {...color, rating}
         );
+        
         this.setState({colors});
 
     };
