@@ -30183,6 +30183,16 @@ require(['knockout',
 			}
 		});
 	});
+
+(function(){
+	$('.sub-menu ul').hide();
+	$(".sub-menu a").click(function () {
+		console.log('ok');
+		
+  	$(this).parent(".sub-menu").children("ul").slideToggle("100");
+  	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+	});
+})();
 // пока так и не придумал как сделать открытие и закрытие списков подведомств
 (function(){
 

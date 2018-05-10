@@ -1553,34 +1553,42 @@ h3{
 .news-detail-share {
 	display: none;
 }
-#for_record .nav-stacked>li {
+#for_record .animated.bounceInDown>li {
 	background: #69321f;
 }
-#for_record .nav-stacked>li:hover {
+#for_record .animated.bounceInDown>li:hover {
 	background: #bf9778;
 }
-#for_record .nav-stacked>li a {
+#for_record .animated.bounceInDown>li a {
+    display: block;
+    padding: 10px 15px;
 	font-family: 'PT Sans Italic', sans-serif;
 	font-size: 14px;
 	line-height: 15px;
 	color: #fff;
 }
-#for_record .nav-stacked>li a:hover {
+#for_record .animated.bounceInDown>li {
+    border-bottom: 1px solid #ddc7b2;
+}
+#for_record .animated.bounceInDown>li:last-of-type {
+    border: none;
+}
+
+#for_record .animated.bounceInDown>li a:hover {
 	background: #bf9778;
 	text-decoration: none;
 }
 
-#for_record .nav-stacked.left-menu>li.open a:hover {
+#for_record .animated.bounceInDown>li a:hover {
 	text-decoration: none;
 }
-#for_record .open>.dropdown-menu {
+#for_record .sub-menu {
 	width: 100%;
 	margin: 0;
-	margin-bottom: 10px;
 	border-radius: 0;
 	position: relative;
 }
-#for_record .open>.dropdown-menu li a {
+#for_record >.sub-menu li a {
 	font-style: normal;
 	font-weight: normal;
 	line-height: 25px;
@@ -1588,11 +1596,34 @@ h3{
 	padding-right: 0;
 	background: rgba(195, 147, 103, 0.75);
 }
-#for_record .open>.dropdown-menu li {
+#for_record >.sub-menu li {
 	border-bottom: 1px solid rgba(228, 205, 184, 0.75);
 }
-#for_record .open>.dropdown-menu li a:hover {
+#for_record >.sub-menu li a:hover {
 	background: #c9ab8f;
+}
+.animated.bounceInDown > .sub-menu ul li {
+    border-bottom: 1px solid rgba(228, 205, 184, 0.75);
+}
+.animated.bounceInDown > .sub-menu ul li:last-of-type{
+    border: none;
+}
+#for_record .animated.bounceInDown > .sub-menu >  ul li a {
+    text-align: left;
+    color: #623B2A;
+    background: rgba(195, 147, 103, 0.75);
+}
+#for_record .animated.bounceInDown > .sub-menu > ul li a:hover {
+    background: #c9ab8f;
+}
+#for_record .animated.bounceInDown > .sub-menu:hover {
+    background: none;
+}
+#for_record .animated.bounceInDown > .sub-menu {
+    background: #fff;
+}
+.animated.bounceInDown .dropdown-toggle.marker.active {
+    background: #69321f;
 }
 .go_to_record {
 	background: #d5b08e;

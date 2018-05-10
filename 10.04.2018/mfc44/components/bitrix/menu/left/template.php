@@ -1,7 +1,7 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <?if (!empty($arResult)):?>
-	<ul class="nav nav-pills nav-stacked left-menu">
+	<ul class="animated bounceInDown">
 
 <?
 $previousLevel = 0;
@@ -14,11 +14,14 @@ foreach($arResult as $arItem):?>
 	<?if ($arItem["IS_PARENT"]):?>
 
 		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-			<li class="dropdown"><a class="dropdown-toggle marker" data-toggle="dropdown" href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?>"><?=$arItem["TEXT"]?><b class="caret"></b></a>
-				<ul class="dropdown-menu">
+			<li class="sub-menu">
+				<a class="dropdown-toggle marker" class="<?if ($arItem["SELECTED"]):?>root-item-selected<?else:?>root-item<?endif?>"><?=$arItem["TEXT"]?>
+					<b class="caret"></b>
+				</a>
+				<ul>
 		<?else:?>
-			<li<?if ($arItem["SELECTED"]):?> class="dropdown item-selected active"<?endif?>><a class="dropdown-toggle marker" data-toggle="dropdown" href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
-				<ul class="dropdown-menu">
+			<li<?if ($arItem["SELECTED"]):?> class="dropdown item-selected"<?endif?>><a href="<?=$arItem["LINK"]?>" class="parent"><?=$arItem["TEXT"]?></a>
+				<ul>
 		<?endif?>
 
 	<?else:?>
