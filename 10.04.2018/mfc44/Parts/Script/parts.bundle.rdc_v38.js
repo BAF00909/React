@@ -30189,7 +30189,7 @@ require(['knockout',
 	$(".sub-menu a").click(function () {
 		console.log('ok');
 		
-  	$(this).parent(".sub-menu").children("ul").slideToggle("100");
+  	$(this).parent(".sub-menu").children("ul").slideToggle("700");
   	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
 	});
 })();

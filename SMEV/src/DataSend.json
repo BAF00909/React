@@ -1,36 +1,59 @@
 {
-	"definitions": {
-		"form": {
+	"definitions":
+	{
+		"form":
+		{
 			"type": "object",
-			"properties": {
-				"baseRequestId": {
+			"properties":
+			{
+				"baseRequestId":
+				{
 					"type": "string"
 				},
-				"requestType": {
+				"birthPlace":
+				{
 					"type": "string"
 				},
-				"inn": {
+				"birthDate":
+				{
 					"type": "string",
-					"format": "file"
+					"format": "date-time"
+				},
+				"firstName":
+				{
+					"type": "string"
+				},
+				"patronymic":
+				{
+					"type": "string"
+				},
+				"familyName":
+				{
+					"type": "string"
 				}
 			},
 			"required": [
 				"baseRequestId",
-				"requestType",
-				"inn"
+				"birthPlace",
+				"birthDate",
+				"firstName",
+				"familyName"
 			]
 		}
 	},
 	"type": "object",
-	"properties": {
-		"requestName": {
-			"type": "string",
-      "enum": ["VS00043v002-FNS001"]
+	"properties":
+	{
+		"requestName":
+		{
+			"type": "string", "enum":["VS00010v001-FNS001"]
 		},
-		"isTest": {
+		"isTest":
+		{
 			"type": "boolean"
 		},
-		"form": {
+		"form":
+		{
 			"$ref": "#/definitions/form"
 		}
 	},

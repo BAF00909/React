@@ -16,8 +16,8 @@ class MainForm extends Component {
     }
 
     onSubmit(formData){
-        let data = {method:'POST', headers:{'Content-type': 'application/json', 'Accept-Encoding': 'gzip, deflate'}, body: JSON.stringify(formData.formData)}
-        console.log(data);
+        let data = {method:'POST',mode: 'no-cors', headers:{'Content-type': 'application/json','Content-Encoding': 'deflate, gzip',}, body: JSON.stringify(formData.formData)}
+        console.log(data.body);
         
         fetch('http://gate.nvx.test/SmevGateway/api/tests/request', data)
         .then(function(response) {
@@ -38,7 +38,7 @@ class MainForm extends Component {
         })
         .then((res) => {
             console.log(res);
-            this.setState({responseText:res});
+            this.setState({responseText:res.data.RejectionReasonDescription});
         })
         .catch( alert );
     }
@@ -46,6 +46,8 @@ class MainForm extends Component {
     render() {
         const {dataForm} =  this.props;
         const {requestId,responseText} = this.state;
+        console.log(this.props);
+        
  
         return (
             <div>
@@ -55,7 +57,8 @@ class MainForm extends Component {
                 >
                    
                 </Form>
-                <p>{responseText.data.SmevFault.Description}</p>
+                <p>{requestId}</p>
+                <p style={responseText != null ? {display:'block'} : {display: 'none'}}>{responseText}</p>
                 <button style={requestId != null ? {display:'block'} : {display: 'none'}} onClick={this.handelRequestResponse}>Запросить статус дела</button>
             </div>
         );
