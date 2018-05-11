@@ -662,41 +662,41 @@
 </script>
 <script id="Nvx.ReDoc.Rpgu.Reception/Web/View/Reception1Place.tmpl.html" type="text/html">
 
-    <h3>Выбор учреждения</h3>
-
+    <h3 style="margin-bottom:20px; font-weight:bold;">Выбор учреждения</h3>
+    <div class="receptionGroup-container" >
     <!-- ko foreach: level1objects -->
     <div class="receptionGroup" data-bind="click: changeVisibility">
         <h3 data-bind="text: name" style="margin-top: 0;"></h3>
-    </div>
 
-    <!-- ko if: placesVisible -->
-    <!-- ko foreach: places -->
-    <div class="receptionPlace" data-bind="click: $parent.goLevel2, css: { 'disabled': isEnabled === false }">
-        <p data-bind="text: name"></p>
-        <p class="info" data-bind="text: address"></p>
+        <!-- ko if: placesVisible -->
+        <!-- ko foreach: places -->
+        <div class="receptionPlace" data-bind="click: $parent.goLevel2, css: { 'disabled': isEnabled === false }">
+            <p data-bind="text: name"></p>
+            <p class="info" data-bind="text: address"></p>
+        </div>
+        <!-- /ko -->
+        <!-- /ko -->
     </div>
     <!-- /ko -->
-    <!-- /ko -->
-
-    <!-- /ko -->
+    </div>
 </script>
 <script id="Nvx.ReDoc.Rpgu.Reception/Web/View/Reception2Service.tmpl.html" type="text/html">
-	<h3>Выбор направления</h3>
+	<h3 style="font-size:16px;margin-top:10px;margin-bottom:5px;">Выбор направления</h3>
 
 	<!-- ko foreach: level2objects -->
 	<div class="receptionGroup" data-bind="click: $parent.clickOnService, css: { 'disabled': isEnabled === false }">
-		<h3  data-bind="text: name" style="margin-top: 0;"></h3>
+		<h3  data-bind="text: name" style="margin-top: 0;text-decoration:none;"></h3>
 		<!-- ko if: additionalInfo != name -->
-		<p class="info" data-bind="visible: additionalInfo"><span data-bind="text: additionalInfo"></span></p>
-		<!-- /ko -->
+		<p class="info" style="margin-top:15px;" data-bind="visible: additionalInfo"><span data-bind="text: additionalInfo"></span></p>
+        <!-- /ko -->
+        <div data-bind="template: { name: 'Nvx.ReDoc.Rpgu.Reception/Web/View/Reception2ServiceInnerItem.tmpl.html', data: $data }"></div>
 	</div>
-	<div data-bind="template: { name: 'Nvx.ReDoc.Rpgu.Reception/Web/View/Reception2ServiceInnerItem.tmpl.html', data: $data }"></div>
 	<!-- /ko -->
 </script>
 <script id="Nvx.ReDoc.Rpgu.Reception/Web/View/Reception2ServiceInnerItem.tmpl.html" type="text/html">
 	<!-- ko if: isGroupFolder -->
 	<!-- ko foreach: serviceList-->
-	<div style="margin-left: 20px;">
+	<div>
 		<div class="receptionPlace" data-bind="click: $parent.clickOnService, css: { 'disabled': isEnabled === false }">
 			<p data-bind="text: name"></p>
 			<p class="info" data-bind="visible: additionalInfo"><span data-bind="text: additionalInfo"></span></p>

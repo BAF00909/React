@@ -128,7 +128,7 @@ $('input, textarea').placeholder();
 							
 								<i class="icon-key_new"></i>
 							</a>
-							<div class="auth-submenu" data-bind="visible: submenuVisible" style="display: none">
+							<div class="auth-submenu" data-bind="fadeVisible: submenuVisible" style="display: none">
 								<a class="auth-submenu-item" href="/cabinet/">Личный кабинет</a>
 								<a class="auth-submenu-item" data-bind="click: click" href="#">Выйти</a>
 							</div>							

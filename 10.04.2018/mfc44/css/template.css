@@ -264,7 +264,7 @@ h1 {
     background-image: url(/bitrix/templates/mfc44/images/doc.svg);
 }
 .nav-tabset ul a:hover {
-    background: #b69a77;
+    background: #c9ab8f;
 }
 #tabInfo {
     padding: 0;
@@ -1122,7 +1122,7 @@ h4{
     position: relative;
     font-size: 16px;
     line-height: 22px;
-    background: #cab295;
+    background :#d2ae8d;
     color: #69321f;
     letter-spacing: -0.5px;
 }
@@ -2279,12 +2279,13 @@ padding: 5px 10px;
 height: inherit !important;}
 
 .header-bottom-nav-bar .navbar-nav>li>a.active  {
-background-color: #bf9778;
-color: #69321f;
+    font-weight: bold;
+    color: #69321f;
+    text-decoration: none;
 }
 a.active {
-background-color: #bf9778;
 color: #69321f;
+text-decoration: none;
 }
 
 .instruction_title {font-size: 18px;
@@ -2484,9 +2485,27 @@ right: 0;
 }
 
 div.news-detail {
-text-align: justify;}
-
- 
+    text-align: justify;
+}
+.news-detail .news-date-time {
+    font-size: 14px;
+    color: #000;
+    background: none;
+    padding: 0;
+}
+.news-detail h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+.news-detail p {
+    font-size: 16px;
+    font-weight: normal;
+}
+.news-detail a {
+    font-size: 16px;
+    font-weight: normal;
+}
 
 .link-news {display: block;  }
 .list-img {
@@ -2672,19 +2691,20 @@ span.add_hour_title, span.add_minute_title {
 margin-right: 2px;
 }
 .reception-redoc-form .receptionGroup {
-    border: 1px solid #d0d0d0;
+    background: #eee2d3;
     width: 100%;
     cursor: pointer;
     margin: 2px 0;
-    padding: 10px 10px 0;
+    padding: 10px;
 }
 .reception-redoc-form .receptionPlace {
     border: 1px solid #d0d0d0;
+    background: #fff;
     margin-top: 2px;
-    margin-left: 20px;
     padding: 7px 10px 2px;
     cursor: pointer;
 }
+
 .personal-info {
     display: flex;
     flex-direction: row;
@@ -3115,4 +3135,113 @@ input[type=checkbox] {
 }
 .hiddenObject {
     height: 1px;
+}
+.pre-loader .throbber-svg {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+.throbber-svg svg {
+    padding: 2px;
+    animation: throbberRotateX 1.5s infinite cubic-bezier(0.8, 0, 0, 0.8);
+}
+
+.throbber-svg .throbber-path {
+	-webkit-transform-origin: 46px 50px;
+    transform-origin: 46px 50px;
+    animation: throbberRotateZ 1.5s infinite linear, throbberColor 6s infinite cubic-bezier(0.8, 0, 0, 0.8);
+}
+
+.throbber-svg .throbber-small {
+    width: 28px;
+    height: 28px;
+}
+
+.throbber-small svg {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    transform-origin: 0 12px;
+}
+.throbber.throbber-svg.throbber-abs {
+    left: 50%;
+    margin-left: -40px;
+    margin-top: -40px;
+    opacity: 1;
+    position: fixed;
+    top: 50%;
+    z-index: 1000;
+}
+
+.throbber.throbber-svg {
+    height: 200px;
+    left: 48%;
+    position: relative;
+}
+@keyframes throbberRotateX {
+    0% {
+		-webkit-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    100% {
+		-webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+}
+
+@keyframes throbberRotateZ {
+    0% {
+		-webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+		-webkit-transform: rotateZ(90deg);
+        transform: rotateZ(90deg);
+    }
+
+    50% {
+		-webkit-transform: rotateZ(180deg);
+        transform: rotateZ(180deg);
+    }
+
+    75% {
+		-webkit-transform: rotateZ(90deg);
+        transform: rotateZ(90deg);
+    }
+
+    100% {
+		-webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes throbberColor {
+    0%, 100% {
+        fill: #E04E39;
+    }
+
+    50% {
+        fill: #623B2A;
+    }
+
+    75% {
+        fill: #c39367;
+    }
+
+}
+.receptionGroup-container {
+    clear: both;
+}
+.receptionGroup-container > .receptionGroup {
+    width: 47%;
+    float: left;
+    margin-right: 2%;
+}
+.receptionGroup h3 {
+    text-decoration: underline;
+}
+.receptionGroup h3 + .receptionPlace {
+    margin-top: 10px;
 }

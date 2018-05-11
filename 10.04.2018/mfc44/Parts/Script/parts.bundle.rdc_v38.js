@@ -822,7 +822,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/Scripts/modalWindowsFunction',
 			self.CreateTrobberDiv = function() {
 				if ($('.throbber.throbber-svg').length > 0)
 					return;
-				$('body').prepend('<div id="{0}" class="throbber throbber-svg throbber-abs global-throber"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#00aadd" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div>'.format(self.trobberId));
+				$('body').prepend('<div id="{0}" class="throbber throbber-svg throbber-abs global-throber"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#e96343" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div>'.format(self.trobberId));
 			};
 
 			//Создания дива с троббером
@@ -844,7 +844,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/Scripts/modalWindowsFunction',
 						} else if ($('#main') != null && $('#main').length == 1) {
 							target = $('#main');
 						}*/
-					$('body').prepend('<div id="{0}" class="throbber throbber-svg throbber-abs global-throber"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#00aadd" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div>'.format(self.trobberId));
+					$('body').prepend('<div id="{0}" class="throbber throbber-svg throbber-abs global-throber"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#e96343" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div>'.format(self.trobberId));
 				}
 				return guid;
 			};
@@ -859,7 +859,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/Scripts/modalWindowsFunction',
 				self.stack.push(guid);
 				//Рисуем троббер, если его еще нет.
 				if (document.getElementById(self.trobberId) == null) {
-					$('body').append('<div id = "{0}" class="global-throber" style="position: fixed; top: 0; left: 0; height: 100%; z-index: 200;">' + '<div class="throbber throbber-svg" style="opacity: 1; position: fixed; top: 300px; left: 48%; z-index: 201;"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#00aadd" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div></div>'.format(self.trobberId));
+					$('body').append('<div id = "{0}" class="global-throber" style="position: fixed; top: 0; left: 0; height: 100%; z-index: 200;">' + '<div class="throbber throbber-svg" style="opacity: 1; position: fixed; top: 300px; left: 48%; z-index: 201;"><!--?xml version="1.0" encoding="utf-8"?--><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="92px" height="100px" viewBox="0 0 92 100" enable-background="new 0 0 92 100" xml:space="preserve"><path fill="#e96343" class="throbber-path" d="M81.765,82.649L56.607,97.19c-6.479,3.744-14.462,3.746-20.942,0.01L10.493,82.682 C4.012,78.944,0.017,72.032,0.014,64.549L0,35.493c-0.003-7.482,3.985-14.398,10.463-18.141L35.621,2.811 c6.478-3.744,14.46-3.748,20.943-0.011l25.171,14.519c6.481,3.738,10.476,10.648,10.479,18.131l0.014,29.059 C92.231,71.989,88.244,78.905,81.765,82.649"></path></svg></div></div>'.format(self.trobberId));
 				}
 				return guid;
 			};
@@ -1701,6 +1701,17 @@ define('Nvx/AuthViewModel', ['knockout', 'jquery'], function (ko, $) {
 					}
 				});
 		};
+	};
+
+	ko.bindingHandlers.fadeVisible = {
+		init: function(element, valueAccessor) {
+			var value = valueAccessor();
+			$(element).toggle(ko.unwrap(value));
+		},
+		update: function(element, valueAccessor) {
+			var value = valueAccessor();
+			ko.unwrap(value) ? $(element).fadeIn(300) : $(element).fadeOut(300);
+		}
 	};
 
 	return AuthViewModel;
@@ -30187,10 +30198,7 @@ require(['knockout',
 (function(){
 	$('.sub-menu ul').hide();
 	$(".sub-menu a").click(function () {
-		console.log('ok');
-		
   	$(this).parent(".sub-menu").children("ul").slideToggle("700");
-  	$(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
 	});
 })();
 // пока так и не придумал как сделать открытие и закрытие списков подведомств
@@ -30204,6 +30212,7 @@ require(['knockout',
 
         var target = e.target;
 		var parent = target.parentNode;
+		
 
         if(parent == null || parent == undefined){
             return;

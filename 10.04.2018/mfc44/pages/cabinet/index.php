@@ -158,8 +158,10 @@ $APPLICATION->AddChainItem("Личный кабинет");
 								<span class="opa" style="margin-bottom: 15px;">Специалист: </span> <span data-bind="text: specialist.name"></span>
 								<!-- /ko -->
 							</div>
-							<div class="reception-ticket-hrz-4 button btn primary" data-bind="click: $parent.printTicket">Печать</div>
-							<div class="reception-ticket-hrz-3 button btn b-delete" data-bind="click: $parent.cancelReception, visible: canCancel">Отменить запись</div>
+							<div class="clearfix">
+								<div class="reception-ticket-hrz-4 button btn primary" data-bind="click: $parent.printTicket">Печать</div>
+								<div class="reception-ticket-hrz-3 button btn b-delete" data-bind="click: $parent.cancelReception, visible: canCancel">Отменить запись</div>
+							</div>
 						</div>
 						<!-- /ko -->
 					</div>
