@@ -29,15 +29,31 @@ class Color extends Component {
         }
     };
 
-    componentWillUpdate(){
-        this.style = null;
+    shouldComponentUpdate(nextProps){
+        const {rating} = this.props;
+        return rating !== nextProps.rating
     };
+
+    componentWillUpdate(){
+        const {title,rating} = this.props;
+        this.style = null;
+        this.refs.title.style.backgroundColor = 'red';
+        this.refs.title.style.color = 'white';
+    };
+
+    componentDidUpdate(prevProps){
+        const {title, rating} = this.props;
+        const status = (rating > prevProps.rating) ? 'better':'worse';
+        console.log(`${title} is getting ${status}`);
+        this.refs.title.style.backgroundColor = '';
+        this.refs.title.style.color = '#000';
+    }
 
     render() { 
         const {title,color,rating,onRemove,onRate} = this.props;
         return (
             <section className='color' style={this.style}>
-                <h1>{title}</h1>
+                <h1 ref="title">{title}</h1>
                 <button onClick={onRemove}>X</button>
                 <div className='color' style={{'backgroundColor':color}}></div>
                 <div>

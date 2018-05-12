@@ -8,7 +8,7 @@ const StarRating = ({totalStars=5, starSelected=0, onRate=f=>f}) =>
         [...Array(totalStars)].map((n,i)=>
                 <Star key={i}
                 selected={i<starSelected}
-                onRate={onRate}
+                onRate={()=>onRate(i+1)}
         />
         )
     }
