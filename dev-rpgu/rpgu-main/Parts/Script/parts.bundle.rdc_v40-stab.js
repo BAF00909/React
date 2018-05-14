@@ -30714,7 +30714,7 @@ define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 	function(ko,$,portalPageController,Tab,modal,MfcListViewModel){
 
 		var ServiceInfoViewModelPage = function(){
-			var self = this;
+		var self = this;
 		//идентификатор папорта услуги
 		self.passportId = window.getUrlVarsFunction()['serviceid'];
 		//Наименование паспорта
