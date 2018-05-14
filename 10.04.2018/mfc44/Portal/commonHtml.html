@@ -685,7 +685,7 @@
 
 	<!-- ko foreach: level2objects -->
 	<div class="receptionGroup" data-bind="click: $parent.clickOnService, css: { 'disabled': isEnabled === false }">
-		<h3  data-bind="text: name" style="margin-top: 0;text-decoration:none;"></h3>
+		<h3  data-bind="text: name" style="margin-top: 0;"></h3>
 		<!-- ko if: additionalInfo != name -->
 		<p class="info" style="margin-top:15px;" data-bind="visible: additionalInfo"><span data-bind="text: additionalInfo"></span></p>
         <!-- /ko -->
@@ -709,7 +709,7 @@
 <script id="Nvx.ReDoc.Rpgu.Reception/Web/View/Reception3Date.tmpl.html" type="text/html">
 
     <h3 style="margin-bottom:20px;">Выбор специалиста и даты</h3>
-
+    <div style="background:#fdf3e9;padding:10px 0;">
     <div style="text-align: center; height: 60px;">
         <div class="btn primary" style="float: left" data-bind="click: prevWeek">Назад</div>
         <span style="font-size:16px;color:#69321f;font-weight:bold;">Период с <span data-bind="dateFormat: dateFrom, format: 'Date'"></span> по <span data-bind="dateFormat: dateTo, format: 'Date'"></span></span>
@@ -782,17 +782,18 @@
         <!-- /ko -->
         </tbody>
     </table>
+    </div>
 
     <p class="m-top-dbl" data-bind="text: info"></p>
 </script>
 <script id="Nvx.ReDoc.Rpgu.Reception/Web/View/Reception4Position.tmpl.html" type="text/html">
     <h3 style="margin-bottom:15px;">Выбор времени приёма</h3>
-    <div style="text-align: center; height: 50px;">
+    <div style="text-align: center; height: 55px;background:#fdf3e9;padding:10px 0;">
         <div class="btn primary" style="float: left" data-bind="click: prevDay">Назад</div>
         <span style="font-size:16px;color:#69321f;font-weight:bold;" data-bind="dateFormat: currentDay"></span>
         <div class="btn primary" style="float: right" data-bind="click: nextDay">Вперёд</div>
     </div>
-    <div style="display:flex;flex-direction:row;justify-content: flex-start;flex-wrap: wrap;">
+    <div style="display:flex;flex-direction:row;justify-content: center;flex-wrap: wrap;background:#fdf3e9;padding:10px 0;width: 100%;">
         <!-- ko foreach: level4objects -->
         <div class="receptionDate" data-bind="click: $parent.goLevel5, css: { 'disabled': isAvailable == false }">
             <span data-bind="text: name"></span>
