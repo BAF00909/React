@@ -5,7 +5,7 @@ $APPLICATION->AddChainItem("Запись на приём");
 ?>		
 			
 <main id="main">
-	<div id="nvxReception" class="clearfix" style="margin-bottom: 20px;">
+	<div id="nvxReception" class="clearfix" style="margin-bottom: 40px;">
 	<h1 class="reception-title">Запись на приём</h1>
 	<div class="paddings reception-redoc-form">
 		<h2 class="declinePlate m-top" data-bind="visible: userInfo() == null">Для записи на приём вы должны быть авторизованы</h2>

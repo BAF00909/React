@@ -19818,14 +19818,17 @@ define('Nvx.ReDoc.Rpgu.Reception/Web/Scripts/Reception3DateViewModel',
 						//обработка ошибки
 						modal.errorModalWindow(response.errorMessage);
 					} else if (response.result != null) {
+						console.log(response.result);
+						var dateStart = new Date(response.result.dateFrom).toLocaleString('ru', {weekday: 'short'}) + ' ' + new Date(response.result.dateFrom).getDate() + ' ' + new Date(response.result.dateFrom).getMonth();
+						
 						self.dateFrom(new Date(response.result.dateFrom));
-						self.dateTo(new Date(response.result.dateTo));
-
-						self.date1(self.addDays(self.dateFrom(), 1));
+						self.dateTo(new Date(response.result.dateTo));						
+						self.date1(self.addDays(self.dateFrom(), 1));			
 						self.date2(self.addDays(self.dateFrom(), 2));
 						self.date3(self.addDays(self.dateFrom(), 3));
 						self.date4(self.addDays(self.dateFrom(), 4));
 						self.date5(self.addDays(self.dateFrom(), 5));
+						//self.addDays(self.dateFrom(), 1).toLocaleString('ru', {weekday: 'short'})
 
 						if (response.result.schedule.length > 0) {
 							for (var i = 0; i < response.result.schedule.length; i++) {
@@ -26102,6 +26105,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/lib.fix/knockout/customBindingHandl
 				var format = opt.format;
 				var placeHolder = opt.placeHolder || '';
 				var resultStr;
+				
 				if (value && value != '') {
 					switch (format) {
 						case "FullDate":
@@ -26112,6 +26116,9 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/lib.fix/knockout/customBindingHandl
 							break;
 						case "Simple":
 							resultStr = value.replace('T', ' в ');
+							break;
+						case "reseptionDate":
+							resultStr = (value.toLocaleString('ru', {weekday: 'short'})).toUpperCase() + ' '+ value.getDate() + '.' +  (value.getMonth() < 10 ? '0'+value.getMonth() : value.getMonth());
 							break;
 						default:
 							resultStr = dateFormater.toDateString(value);

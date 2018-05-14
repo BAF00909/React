@@ -3245,3 +3245,41 @@ input[type=checkbox] {
 .receptionGroup h3 + .receptionPlace {
     margin-top: 10px;
 }
+.reception-block__element.reception-block__element--date,
+.reception-block__element.reception-block__element--time span{
+    color: #69321f;
+    font-weight: bold;
+}
+.reception-block__element.reception-block__element--ticket-count {
+    color: #e96343;
+    font-weight: bold;
+}
+.reception-block__block-tickets {
+    padding: 5px;
+    border: 1px solid #e96343;
+}
+.tickets-block {
+    display: flex;
+    flex-direction: column;
+}
+.tickets-block__header,
+.tickets-block__body {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    min-height: 100%;
+}
+.tickets-block__header__element,
+.tickets-block__body-element {
+    flex-basis: 100px;
+}
+.receptionDate {
+    color:#69321f;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #c39367;
+}
+.receptionDate:hover {
+    background: #e96343;
+    cursor: pointer;
+}

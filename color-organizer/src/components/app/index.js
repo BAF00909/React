@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AddColorForm from '../addColorForm';
 import ColorList from '../colorList';
 import {v4} from 'uuid';
-
+import r from '../../reducers';
 
 class App extends Component {
 
