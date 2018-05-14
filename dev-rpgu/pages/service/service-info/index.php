@@ -8,6 +8,8 @@ $APPLICATION->AddChainItem("Информация об услуге");
 <main id="main">
 <div id="nvxServiceInfoPage">
 
+   <div data-bind="template: { name: 'Nvx.ReDoc.StateStructureServiceModule/Service/View/servicePassportInfoPage.tmpl.html', data: data }"></div>
+
  <div class="head-info">
     <h1 data-bind="text: passportFullName" class="headerPave"></h1>
     <div class="btn button-small" data-bind="click: function(){window.history.back();}">Назад к выбору услуги</div>
