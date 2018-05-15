@@ -1,5 +1,5 @@
 requirejs.config({
-	baseUrl: 'http://44mfc.egspace.ru/bitrix/templates/mfc44/Portal',
+	baseUrl: 'http://portal.mfc31.ru/bitrix/templates/mfc31/Portal',
 
 	text: {
 		useXhr: function(url, protocol, hostname, port) {
@@ -198,7 +198,7 @@ var jQuery = jQuery || window["$"];
 var jQuery = jQuery || window["$"];
 var reconfigJq = function(jq){
 	jq.ajaxSetup({
-		globalUrl: "http://44mfc.egspace.ru",
+		globalUrl: "http://portal.mfc31.ru",
 		cache: false
 	});
 	if (navigator != null && navigator.userAgent != null && navigator.userAgent.indexOf('Trident') >= 0) {
@@ -221,7 +221,7 @@ var reconfigJq = function(jq){
 			}
 			if(options.url === '/ajax.handler.php'){
 				console.log('this is ajax');
-				options.url = 'http://44mfc.egspace.ru' + options.url;
+				options.url = 'http://portal.mfc31.ru' + options.url;
 				var setup = jq.ajaxSetup({
 					url: options.url,
 					headers: options.headers,
@@ -263,10 +263,10 @@ var reconfigJq = function(jq){
 				});*/
 			} else {
 				var setup = jq.ajaxSetup({
-					url: 'http://44mfc.egspace.ru/proxy.php' + '?_=' + Date.now(),
+					url: 'http://portal.mfc31.ru' + '?_=' + Date.now(),
 					crossDomain: true,
 					headers: {
-						'X-Proxy-URL': 'http://testrpgu.egspace.ru' + options.url,
+						'X-Proxy-URL': 'http://rdc.gosuslugi31.ru' + options.url,
 						'X-Proxy-Cookie': document.cookie,
 					},
 					type: ttype,

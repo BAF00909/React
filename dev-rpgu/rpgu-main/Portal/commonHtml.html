@@ -1273,7 +1273,7 @@
                     <li data-bind="css: { 'active': tabs.additionalInformation.active }"><a href="#tabInfo" data-bind="text: tabs.additionalInformation.title, event: { click: tabs.additionalInformation.onclick }"></a></li>
                     <!-- ko if: tabs.mfcList.visible -->
                     <!-- МФЦ -->
-                    <li data-bind="css: { 'active': tabs.mfcList.active }"><a href="#tabInfo" data-bind="text: tabs.mfcList.title, event: { click: tabs.mfcList.onclick }"></a></li>
+                    <div id="tabMFC" class="tab" data-bind="'visible': tabs.mfcList.active, template: { name: 'Nvx.ReDoc.StateStructureServiceModule/StateStructure/View/mfcListContacts.tmpl.html', data: mfcList, if: mfcList }"></div>
                     <!-- /ko -->
                 </ul>
             </nav>
