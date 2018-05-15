@@ -240,30 +240,10 @@ var reconfigJq = function(jq){
 					}
 
 				});
-			
-			/*if (options.headers == null || options.headers.proxy !== true) {
-				options.url = setup.globalUrl + options.url;
-				var setup = jq.ajaxSetup({
-					url: options.url,
-					headers: options.headers,
-					type: ttype,
-					data: options.data,
-					dataType: options.dataType,
-					contentType: options.contentType,
-					error: options.error || function() {},
-					beforeSend: options.beforeSend || function() {},
-					success: options.success || function() {},
-					complete: options.complete || function () {
-						if (document.getElementsByClassName('throbber').length == 1) {
-							if (document.getElementsByClassName('throbber')[0].remove != null)
-								document.getElementsByClassName('throbber')[0].remove();
-						}
-					}
-
-				});*/
 			} else {
+				console.log('this is not ajax', options);
 				var setup = jq.ajaxSetup({
-					url: 'http://portal.mfc31.ru' + '?_=' + Date.now(),
+					url: 'http://portal.mfc31.ru/proxy.php' + '?_=' + Date.now(),
 					crossDomain: true,
 					headers: {
 						'X-Proxy-URL': 'http://rdc.gosuslugi31.ru' + options.url,
