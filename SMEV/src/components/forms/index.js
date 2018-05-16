@@ -16,10 +16,19 @@ class MainForm extends Component {
     }
 
     onSubmit(formData){
-        let data = {method:'POST',mode: 'no-cors', headers:{'Content-type': 'application/json','Content-Encoding': 'deflate, gzip',}, body: JSON.stringify(formData.formData)}
+        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        let data = {
+            method:'POST', 
+            mode:'cors', 
+            headers:{
+                'Content-Type':'application/json; charset=utf-8',
+                'Content-Encoding':'gzip, deflate'
+            }, 
+            body: JSON.stringify(formData.formData)
+        }
         console.log(data.body);
         
-        fetch('http://gate.nvx.test/SmevGateway/api/tests/request', data)
+       fetch('http://gate.nvx.test/SmevGateway/api/tests/request', data)
         .then(function(response) {
             return response.json();
         })
@@ -31,8 +40,9 @@ class MainForm extends Component {
     };
 
     handelRequestResponse(){
-        const {requestId} = this.state;   
-        fetch('http://10.10.0.65/api/smev/getresponse/'+requestId)
+        const {requestId} = this.state; 
+        
+        fetch('http://gate.nvx.test/SmevGateway/api/tests/askresponse/true/'+requestId)
         .then(function(response) {
             return response.json();
         })
