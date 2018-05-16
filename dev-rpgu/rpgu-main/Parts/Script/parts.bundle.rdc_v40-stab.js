@@ -8826,8 +8826,6 @@ define('Nvx.ReDoc.StateStructureServiceModule/Service/Script/ServicePassportInfo
 		// метод определения видимости контента паспорта услуг
 		self.showServicePassportContent = function(targetId){
 			window.location = '/service/service-info/index.php?serviceId='+ self.passportId +'&targetId='+targetId;
-            //self.servicePassportContent(true);
-			//self.currentId(targetId);
         }
 
 		//проверяет не состоит ли массив из пустых записей и стоит ли его показывать
@@ -30700,7 +30698,7 @@ define('Nvx.ReDoc.WebInterfaceModule/Content/Scripts/AuthenticationController/si
 
 	return signLib;
 });
-define('nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
+define('Nvx/ServiceInfoViewModelPage', //https://rm.mfc.ru/issues/12067
 ['knockout',
 'jquery',
 'Nvx.ReDoc.Rpgu.PortalModule/Portal/Script/portalPageController',
@@ -31019,7 +31017,7 @@ require(['knockout',
 		'Esb/EsbProblemRequestsViewModel',
 		'Nvx.ReDoc.Rpgu.HousingUtilities/Script/servicePayViewModel',
 		'Nvx.ReDoc.Rpgu.Parking31/Script/ParkingCommonViewModel',
-		'nvx/ServiceInfoViewModelPage'
+		'Nvx/ServiceInfoViewModelPage'
 	],
 	function(ko,
 		domReady,

@@ -246,7 +246,7 @@ var reconfigJq = function(jq){
 					url: 'http://portal.mfc31.ru/proxy.php' + '?_=' + Date.now(),
 					crossDomain: true,
 					headers: {
-						'X-Proxy-URL': 'http://rdc.gosuslugi31.ru' + options.url,
+						'X-Proxy-URL': 'http://localhost:29929' + options.url,
 						'X-Proxy-Cookie': document.cookie,
 					},
 					type: ttype,

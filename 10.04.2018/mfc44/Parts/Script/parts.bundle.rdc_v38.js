@@ -17,7 +17,7 @@ require([], function () {
 		searchView: '/searchservice/index.php',
 		payView: '/pay/myAccountPayments/index.php',
 		authRedirectPath: 'http://portal.mfc31.ru/authRequest.php',
-		authPortalPath: 'http://rdc.gosuslugi31.ru',
+		authPortalPath: 'http://localhost:29929',
 		fileProxyPath: 'http://portal.mfc31.ru/proxy4file.php',
 		elkRedirectPath: 'http://portal.mfc31.ru/elkSubscribe.php',
 		igtnServiceList: []
