@@ -17548,7 +17548,8 @@ var MainForm = function (_Component) {
 
         _this.state = {
             requestId: null,
-            responseText: null
+            responseText: null,
+            localStor: []
         };
         _this.onSubmit = _this.onSubmit.bind(_this);
         _this.handelRequestResponse = _this.handelRequestResponse.bind(_this);
@@ -17556,6 +17557,13 @@ var MainForm = function (_Component) {
     }
 
     _createClass(MainForm, [{
+        key: 'onSaveLocalStorage',
+        value: function onSaveLocalStorage(value) {
+            var valueArr = window.localStorage.SMEV ? JSON.parse(window.localStorage.SMEV) : [];
+            valueArr.push(value);
+            window.localStorage.SMEV = JSON.stringify(valueArr);
+        }
+    }, {
         key: 'onSubmit',
         value: function onSubmit(formData) {
             var _this2 = this;
@@ -17576,6 +17584,7 @@ var MainForm = function (_Component) {
             }).then(function (res) {
                 _this2.setState({ requestId: res });
                 console.log(res); //4d346137-2262-474d-9700-0a3b6e81fa18
+                _this2.onSaveLocalStorage(res);
             }).catch(alert);
         }
     }, {
@@ -17595,12 +17604,35 @@ var MainForm = function (_Component) {
             }).catch(alert);
         }
     }, {
+        key: 'handelRequestResponseEl',
+        value: function handelRequestResponseEl(id) {
+            var _this4 = this;
+
+            event.preventDefault();
+            fetch('http://gate.nvx.test/SmevGateway/api/viewlog/requests/' + id).then(function (response) {
+                return response.json();
+            }).then(function (res) {
+                console.log(res.RejectionReasonDescription);
+                _this4.setState({ responseText: res.response });
+            }).catch(alert);
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setState({
+                localStor: JSON.parse(window.localStorage.SMEV)
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this5 = this;
+
             var dataForm = this.props.dataForm;
             var _state = this.state,
                 requestId = _state.requestId,
-                responseText = _state.responseText;
+                responseText = _state.responseText,
+                localStor = _state.localStor;
 
             console.log(this.props);
             console.log(this.state);
@@ -17608,6 +17640,28 @@ var MainForm = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 null,
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    '\u0421\u043E\u0437\u0434\u0430\u043D\u043D\u044B\u0435 \u0437\u0430\u043F\u0440\u043E\u0441\u044B'
+                ),
+                _react2.default.createElement(
+                    'ul',
+                    null,
+                    localStor.map(function (item, i) {
+                        return _react2.default.createElement(
+                            'li',
+                            { key: i },
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#', onClick: function onClick() {
+                                        _this5.handelRequestResponseEl(item);
+                                    } },
+                                item
+                            )
+                        );
+                    })
+                ),
                 _react2.default.createElement(_reactJsonschemaForm2.default, {
                     schema: dataForm,
                     onSubmit: this.onSubmit

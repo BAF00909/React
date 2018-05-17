@@ -76,7 +76,7 @@ class MainForm extends Component {
 
     componentWillMount(){
         this.setState({
-            localStor: JSON.parse(window.localStorage.SMEV)
+            localStor: window.localStorage.SMEV ? JSON.parse(window.localStorage.SMEV) : []
         })
     };
 
