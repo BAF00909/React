@@ -19,7 +19,7 @@ class MainForm extends Component {
         //const proxyurl = "https://cors-anywhere.herokuapp.com/";
         let data = {
             method:'POST', 
-            mode:'cors', 
+            mode:'no-cors', 
             headers:{
                 'Content-Type':'application/json; charset=utf-8',
                 'Content-Encoding':'gzip, deflate'
