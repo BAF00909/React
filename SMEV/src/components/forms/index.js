@@ -9,10 +9,17 @@ class MainForm extends Component {
         super(props);
         this.state = {
             requestId : null,
-            responseText: null
+            responseText: null,
+            localStor: []
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.handelRequestResponse = this.handelRequestResponse.bind(this)
+    }
+
+    onSaveLocalStorage(value){
+        let valueArr = window.localStorage.SMEV ? JSON.parse(window.localStorage.SMEV) : [];
+        valueArr.push(value);
+        window.localStorage.SMEV = JSON.stringify(valueArr);
     }
 
     onSubmit(formData){
@@ -34,6 +41,7 @@ class MainForm extends Component {
         .then((res) => {
             this.setState({requestId:res});
             console.log(res); //4d346137-2262-474d-9700-0a3b6e81fa18
+            this.onSaveLocalStorage(res)
         })
         .catch( alert );
     };
@@ -51,16 +59,41 @@ class MainForm extends Component {
             this.setState({responseText:res.response});
         })
         .catch( alert );
+    };
+
+    handelRequestResponseEl(id){
+        event.preventDefault();
+        fetch('http://gate.nvx.test/SmevGateway/api/viewlog/requests/'+id)
+        .then(function(response) {
+            return response.json();
+        })
+        .then((res) => {
+            console.log(res.RejectionReasonDescription);
+            this.setState({responseText:res.response});
+        })
+        .catch( alert );
     }
+
+    componentWillMount(){
+        this.setState({
+            localStor: JSON.parse(window.localStorage.SMEV)
+        })
+    };
 
     render() {
         const {dataForm} =  this.props;
-        const {requestId,responseText} = this.state;
+        const {requestId,responseText,localStor} = this.state;
         console.log(this.props);
         console.log(this.state);
         
         return (
             <div>
+                <p>Созданные запросы</p>
+                <ul>
+                    {
+                        localStor.map((item,i) => <li key={i}><a href="#" onClick={() => {this.handelRequestResponseEl(item)}}>{item}</a></li>)
+                    }
+                </ul>
                 <Form 
                 schema={dataForm}
                 onSubmit={this.onSubmit}
