@@ -6,8 +6,8 @@
   "scripts": {
     "start": "concurrently \"npm run dev\" \"npm run api\"",
     "api": "node simple_api/server.js",
-    "dev": "webpack-dev-server --hot --inline",
-    "build": "webpack"
+    "dev": "set NODE_ENV=development&& webpack-dev-server --hot --inline",
+    "build": "set NODE_ENV=prodaction&& webpack"
   },
   "repository": {
     "type": "git",

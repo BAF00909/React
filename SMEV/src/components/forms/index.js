@@ -16,10 +16,9 @@ class MainForm extends Component {
     }
 
     onSubmit(formData){
-        //const proxyurl = "https://cors-anywhere.herokuapp.com/";
         let data = {
             method:'POST', 
-            mode:'no-cors', 
+            mode:'cors', 
             headers:{
                 'Content-Type':'application/json; charset=utf-8',
                 'Content-Encoding':'gzip, deflate'
@@ -41,14 +40,15 @@ class MainForm extends Component {
 
     handelRequestResponse(){
         const {requestId} = this.state; 
-        
-        fetch('http://gate.nvx.test/SmevGateway/api/tests/askresponse/true/'+requestId)
+        //http://gate.nvx.test/SmevGateway/api/tests/askresponse/true/
+        //http://10.10.0.65/api/smev/getresponse/
+        fetch('http://gate.nvx.test/SmevGateway/api/viewlog/requests/'+requestId)
         .then(function(response) {
             return response.json();
         })
         .then((res) => {
-            console.log(res);
-            this.setState({responseText:res.data.RejectionReasonDescription});
+            console.log(res.RejectionReasonDescription);
+            this.setState({responseText:res.response});
         })
         .catch( alert );
     }
@@ -57,8 +57,8 @@ class MainForm extends Component {
         const {dataForm} =  this.props;
         const {requestId,responseText} = this.state;
         console.log(this.props);
+        console.log(this.state);
         
- 
         return (
             <div>
                 <Form 
@@ -68,7 +68,7 @@ class MainForm extends Component {
                    
                 </Form>
                 <p>{requestId}</p>
-                <p style={responseText != null ? {display:'block'} : {display: 'none'}}>{responseText}</p>
+                <p style={responseText != null ? {display:'block'} : {display: 'none'}}>ответ: {responseText}</p>
                 <button style={requestId != null ? {display:'block'} : {display: 'none'}} onClick={this.handelRequestResponse}>Запросить статус дела</button>
             </div>
         );
