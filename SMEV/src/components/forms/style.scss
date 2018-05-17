@@ -4,3 +4,15 @@
 .array-item-remove:after{
     content: 'remove';
 }
+.request-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    .request-block__left{
+        width: 25%;
+    }
+    .request-block__right{
+        width: 70%;
+    }
+}
