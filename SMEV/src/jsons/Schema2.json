@@ -1,6 +1,6 @@
 {
 	"definitions": {
-                          "stаtementItem":   {
+        "stаtementItem":   {
 			"type": "object",
 			"properties":{
 				"fileNameStatement": 

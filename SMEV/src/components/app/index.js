@@ -12,30 +12,46 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            dataForm : {"":""}
-        }
+            dataForm : {"":""},
+            uiSchema: {"":""}
+        };
+        this.getJsonSchema = this.getJsonSchema.bind(this);
+        this.getUiSchema = this.getUiSchema.bind(this);
     };
 
+    getJsonSchema(){
+        fetch('/src/jsons/Schema4.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then((res) => {
+            console.log(res);
+            this.setState({dataForm:res});
+        })
+        .catch( alert ); 
+    };
+
+    getUiSchema(){
+        fetch('/src/jsons/uiSchema.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then((res) => {
+            console.log(res);
+            this.setState({uiSchema:res});
+        })
+        .catch( alert );   
+    }
+
     componentDidMount(){
-        let xhr = new XMLHttpRequest();
-        xhr.open('GET', '/src/DataSend.json', true);
-        xhr.send();
-        xhr.onreadystatechange = ()=>{
-          if (xhr.readyState != 4) return;
-          if (xhr.status != 200) {
-            alert(xhr.status + ': ' + xhr.statusText);
-          } else {
-            this.setState({dataForm: JSON.parse(xhr.responseText)});
-          }
-        
-        }
+        this.getJsonSchema();
+        this.getUiSchema(); 
     };
 
     render() {
-        console.log(this.state.dataForm);
         return(
             <div className="app">
-               <MainForm dataForm = {this.state.dataForm} />
+               <MainForm dataForm = {this.state.dataForm} uiSchema={this.setState.uiSchema} />
             </div>
         )
     };

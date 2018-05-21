@@ -1,0 +1,89 @@
+{
+	"definitions":
+	{
+		"form":
+		{
+			"type": "object",
+			"properties":
+			{
+				"accDateBegin":
+				{
+					"type": ["string", null],
+					"format": "date-time"
+				},
+				"accDateEnd":
+				{
+					"type": ["string", null],
+					"format": "date-time"
+				},
+				"accState":
+				{
+					"type": ["string",null]
+				},
+				"switchOrgType":
+				{
+					"type": "string"
+				},
+				"rusOgrn":
+				{
+					"type": "string"
+				},
+				"rusInn":
+				{
+					"type": "string"
+				},
+				"rusKpp":
+				{
+					"type": "string"
+				},
+				"foreignKpp":
+				{
+					"type": "string"
+				},
+				"switchForeignType":
+				{
+					"type": "string"
+				},
+				"foreignInn":
+				{
+					"type": "string"
+				},
+				"foreignKio":
+				{
+					"type": "string"
+				}
+			},
+			"required": [
+				"switchOrgType",
+				"rusOgrn",
+				"rusInn",
+				"rusKpp",
+				"foreignKpp",
+				"switchForeignType",
+				"foreignInn",
+				"foreignKio"
+			]
+		}
+	},
+	"type": "object",
+	"properties":
+	{
+		"requestName":
+		{
+			"type": "string", "enum":["VS00078v001-FNS001"]
+		},
+		"isTest":
+		{
+			"type": "boolean"
+		},
+		"form":
+		{
+			"$ref": "#/definitions/form"
+		}
+	},
+	"required": [
+		"requestName",
+		"isTest",
+		"form"
+	]
+}

@@ -18,6 +18,7 @@ class MainForm extends Component {
         this.handelRequestResponse = this.handelRequestResponse.bind(this)
         this.handelRequestResponseEl = this.handelRequestResponseEl.bind(this);
         this.onSaveLocalStorage = this.onSaveLocalStorage.bind(this);
+        this.handlerChange = this.handlerChange.bind(this);
     }
 
     onSaveLocalStorage(value){
@@ -72,10 +73,13 @@ class MainForm extends Component {
             return response.json();
         })
         .then((res) => {
-            console.log(res);
             this.setState({responseText:res.response});
         })
         .catch( alert );
+    };
+
+    handlerChange(changed){
+        //console.log(changed);
     };
 
     componentWillMount(){
@@ -84,15 +88,14 @@ class MainForm extends Component {
         })
     };
 
-    shouldComponentUpdate(nextState){    
-        return nextState !== this.state
-    };
 
     render() {
-        const {dataForm} =  this.props;
-        const {requestId,responseText,localStor} = this.state;
+        const {dataForm,uiSchema} =  this.props;
+        const {requestId, responseText, localStor} = this.state;
+        
         return (
             <div>
+
                 <div className="request-block">
                     <div className="request-block__left">
                         <p>Созданные запросы</p>
@@ -104,11 +107,14 @@ class MainForm extends Component {
                          </p>
                     </div>   
                 </div>
+
                 <Form 
-                schema={dataForm}
-                onSubmit={this.onSubmit}
-                >     
-                </Form>
+                    schema={dataForm}
+                    uiSchema={uiSchema}
+                    onSubmit={this.onSubmit}
+                    onChange={this.handlerChange}
+                />  
+
                 <p>{requestId}</p>
                 <button style={requestId != null ? {display:'block'} : {display: 'none'}} onClick={this.handelRequestResponse}>Запросить статус дела</button>
 
