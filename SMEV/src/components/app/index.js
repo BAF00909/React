@@ -13,20 +13,34 @@ class App extends Component {
         super(props);
         this.state = {
             dataForm : {"":""},
-            uiSchema: {"":""}
+            uiSchema: {"":""},
+            dataForms: [],
+            loading: true
         };
         this.getJsonSchema = this.getJsonSchema.bind(this);
+        this.getJsonSchemases = this.getJsonSchemases.bind(this);
         this.getUiSchema = this.getUiSchema.bind(this);
     };
 
-    getJsonSchema(){
-        fetch('/src/jsons/Schema4.json')
+    getJsonSchema(id){
+        fetch('http://gate.nvx.test/SmevGateway/api/settings/requests/' + id)
+        .then(function(response) {
+            return response.json();
+        })
+        .then((res) => { 
+            console.log(res.templateSchema.replace(/[\t]+/g, ''));
+            this.setState({dataForm:JSON.stringify(res.templateSchema.replace(/[\t,\n]+/g, ''))});
+        })
+        .catch( alert ); 
+    };
+
+    getJsonSchemases(){
+        fetch('http://gate.nvx.test/SmevGateway/api/settings/requests')
         .then(function(response) {
             return response.json();
         })
         .then((res) => {
-            console.log(res);
-            this.setState({dataForm:res});
+            this.setState({dataForms:res, loading:false});
         })
         .catch( alert ); 
     };
@@ -37,20 +51,26 @@ class App extends Component {
             return response.json();
         })
         .then((res) => {
-            console.log(res);
             this.setState({uiSchema:res});
         })
         .catch( alert );   
     }
 
     componentDidMount(){
-        this.getJsonSchema();
+        this.getJsonSchemases();
         this.getUiSchema(); 
     };
 
     render() {
         return(
             <div className="app">
+            { this.state.loading ? <p>Loading...</p> :
+                <ul>
+                    {
+                        this.state.dataForms.map((item,i) => <li key={i} onClick={()=>this.getJsonSchema(item.recId) }>{item.recName}</li>)
+                    }
+                </ul>
+            }  
                <MainForm dataForm = {this.state.dataForm} uiSchema={this.setState.uiSchema} />
             </div>
         )

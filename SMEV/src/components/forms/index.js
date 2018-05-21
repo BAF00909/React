@@ -30,7 +30,6 @@ class MainForm extends Component {
     onSubmit(formData){
         let data = {
             method:'POST', 
-            mode:'cors', 
             headers:{
                 'Content-Type':'application/json; charset=utf-8',
                 'Content-Encoding':'gzip, deflate'
